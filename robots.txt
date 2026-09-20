@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://studio.dvoretckaya.ru/sitemap.xml

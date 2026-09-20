@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Студия творчества и вдохновения — Курсы и Мастер-классы в Раменском</title>
+    <meta content="От песочных картин до живописи и мастер-классов — открываем мир вашего таланта. Курсы и занятия для детей и взрослых в Раменском."
+          name="description"/>
+    <meta content="живопись, курсы рисования, студия творчества, мастер-класс, Ольга Дворецкая, Раменское, песочная терапия, эбру, рисование для детей"
+          name="keywords"/>
+    <meta content="index, follow" name="robots"/>
+    <link href="https://studio.dvoretckaya.ru" rel="canonical"/>
+    <meta content="website" property="og:type"/>
+    <meta content="https://studio.dvoretckaya.ru" property="og:url"/>
+    <meta content="Студия творчества и вдохновения" property="og:title"/>
+    <meta content="От песочных картин до живописи и мастер-классов — открываем мир вашего таланта."
+          property="og:description"/>
+    <meta content="https://studio.dvoretckaya.ru/images/og-image.jpg" property="og:image"/>
+    <link href="images/favicon.png" rel="icon" type="image/png"/>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Студия творчества и вдохновения Ольги Дворецкой",
+      "url": "https://studio.dvoretckaya.ru",
+      "image": "https://studio.dvoretckaya.ru/images/og-image.jpg",
+      "description": "Курсы и мастер-классы по живописи, эбру и песочной анимации для детей и взрослых в Раменском.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Северное шоссе, д.4, офис 22",
+        "addressLocality": "Раменское",
+        "addressRegion": "Московская область",
+        "addressCountry": "RU"
+      },
+      "telephone": "+79264281144",
+      "sameAs": [
+        "https://vk.com/studio.olga.dvoretckaya",
+        "https://t.me/+79264281144",
+        "https://wa.me/+79264281144"
+      ]
+    }
+    </script>
+    <link href="css/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap"
+          rel="stylesheet"/>
+    <script src="https://vk.com/js/api/openapi.js?169" type="text/javascript"></script>
+    <style>
+        :root {
+          --primary-color: #C2828F;
+          --secondary-color: #A56A75;
+          --bg-light: #f7f3f2;
+          --text-dark: #333;
+        }
+
+        body {
+          font-family: 'Montserrat', sans-serif;
+          color: var(--text-dark);
+        }
+        .logo-text, .btn-primary {
+          background-color: var(--primary-color);
+          color: white;
+        }
+        .btn-primary:hover {
+          background-color: var(--secondary-color);
+        }
+        .btn-outline {
+          border-color: var(--primary-color);
+          color: var(--primary-color);
+        }
+        .btn-outline:hover {
+          background-color: var(--primary-color);
+          color: white;
+        }
+        .hero-title, .section-title {
+          font-family: 'Playfair Display', serif;
+          color: var(--text-dark);
+        }
+        .section-title {
+          color: var(--text-dark);
+        }
+        .hover-scale {
+          transition: transform 0.3s ease-in-out;
+        }
+        .hover-scale:hover {
+          transform: scale(1.05);
+        }
+        .shadow-hover:hover {
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .image-container {
+              position: relative;
+              width: 100%;
+              padding-top: 100%;
+              overflow: hidden;
+          }
+          .image-container img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              cursor: pointer;
+          }
+          #modal-gallery {
+              position: fixed;
+              inset: 0;
+              background: rgba(0, 0, 0, 0.9);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              z-index: 50;
+              opacity: 0;
+              pointer-events: none;
+              transition: opacity 0.3s ease-in-out;
+          }
+          #modal-gallery.visible {
+              opacity: 1;
+              pointer-events: auto;
+          }
+          #feedback-container {
+      display: flex; /* Используем Flexbox */
+      overflow-x: auto; /* Позволяем горизонтальную прокрутку */
+      scroll-snap-type: x mandatory; /* Привязываем прокрутку к элементам */
+      -webkit-overflow-scrolling: touch; /* Улучшаем прокрутку на iOS */
+  }
+
+  /* Скрываем скроллбар, если он не нужен */
+  #feedback-container::-webkit-scrollbar {
+      display: none;
+  }
+
+  #feedback-container > div {
+      flex-shrink: 0; /* Предотвращаем сжатие элементов */
+      scroll-snap-align: start; /* Привязываем элемент к началу прокрутки */
+      width: 100%; /* По умолчанию один элемент на всю ширину */
+  }
+
+  /* На больших экранах показываем по 3 элемента */
+  @media (min-width: 1024px) {
+      #feedback-container > div {
+          width: calc(100% / 3 - 16px); /* 100% / 3 элемента - 8px*2 отступа */
+      }
+  }
+
+  /* На средних экранах показываем по 2 элемента */
+  @media (min-width: 768px) and (max-width: 1023px) {
+      #feedback-container > div {
+          width: calc(100% / 2 - 12px); /* 100% / 2 элемента - 8px*2 отступа */
+      }
+  }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+
+<header class="bg-white py-2 sticky top-0 z-50 shadow-md">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2">
+        <a class="flex items-center" href="#">
+            <img alt="Студия Живописи" class="h-[4.25rem]" src="img/Elegant-Art-Studio-Logo.webp">
+        </a>
+        <div class="hidden md:flex space-x-8 items-center">
+            <a class="hover:text-[#C2828F] transition-colors" href="#about">О студии</a>
+            <a class="hover:text-[#C2828F] transition-colors" href="#directions">Направления</a>
+            <a class="hover:text-[#C2828F] transition-colors" href="#teachers">Преподаватели</a>
+            <a class="hover:text-[#C2828F] transition-colors" href="#gallery">Галерея</a>
+            <a class="hover:text-[#C2828F] transition-colors" href="#contact">Контакты</a>
+            <a href="tel:+79264281144" class="btn-primary py-2 px-4 text-sm font-semibold rounded-md shadow-lg transition-all" style="background-color: #C2828F; color: white;">
+                +7 926 428-11-44
+            </a>
+        </div>
+        <div class="md:hidden">
+            <button class="text-[#C2828F] focus:outline-none" id="mobile-menu-toggle">
+                <i class="bi bi-list text-3xl"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="md:hidden absolute w-full bg-white shadow-lg py-4 hidden" id="mobile-menu-dropdown">
+        <div class="flex flex-col items-center space-y-4">
+            <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#about">О студии</a>
+            <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#directions">Направления</a>
+            <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#teachers">Преподаватели</a>
+            <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#gallery">Галерея</a>
+            <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#contact">Контакты</a>
+            <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="tel:+79264281144">+7 926
+                428-11-44</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="pt-40 pb-20 bg-white" id="hero">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                <h1 class="hero-title text-5xl md:text-6xl font-extrabold mb-4 leading-tight">Студия творчества и
+                    вдохновения</h1>
+                <p class="text-lg mb-6 max-w-lg mx-auto md:mx-0">
+                    От песочных картин до живописи и мастер-классов — открываем мир вашего таланта.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+                    <a class="btn-primary text-white py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all" href="#contact">Записаться на занятие</a>
+                    <a class="btn-outline border-2 py-3 px-8 rounded-full transition-all" href="#gallery">Работы
+                        учеников</a>
+                </div>
+                <div class="flex flex-wrap justify-center md:justify-start gap-8">
+                    <div class="text-center">
+                        <span class="block text-4xl font-bold text-[#C2828F]">10+</span>
+                        <span class="block text-sm">Лет опыта</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-4xl font-bold text-[#C2828F]">500+</span>
+                        <span class="block text-sm">Довольных учеников</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-4xl font-bold text-[#C2828F]">12+</span>
+                        <span class="block text-sm">Уникальных программ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <div class="relative flex justify-center items-center w-full aspect-video rounded-full overflow-hidden shadow-2xl" id="hero-media-container" style="background-image: none; background-size: cover; background-position: center center;">
+                    <video class="absolute inset-0 w-full h-full object-cover hidden" id="hero-video" loop="" muted="" playsinline="" preload="auto" style="display: block;">
+                        <source src="img/studio-olga-dvoreckaya.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                    <div class="absolute w-full h-full rounded-full border-4 border-dashed border-[#E0D0C6] animate-pulse-slow"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const videoContainer = document.getElementById('hero-media-container');
+                const videoElement = document.getElementById('hero-video');
+
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            videoElement.load();
+                            videoElement.oncanplaythrough = () => {
+                                videoElement.style.display = 'block';
+                                videoElement.play();
+                                videoContainer.style.backgroundImage = 'none';
+                            };
+                            observer.unobserve(videoContainer);
+                        }
+                    });
+                }, {
+                    rootMargin: '0px',
+                    threshold: 0.1
+                });
+
+                observer.observe(videoContainer);
+            });
+        </script>
+    </section>
+
+    <section class="py-20 bg-white" id="about">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+                <div class="order-2 md:order-1 md:col-span-3 relative overflow-hidden rounded-lg shadow-xl" style="height: 400px;">
+                    <div id="hero-slideshow-container" class="w-full h-full relative">
+                        <img src="img/hero.webp" alt="Студия hero" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;">
+                    <img src="converted_whatsapp_images/studio/studio-dvoretckaya3.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya2.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 1; display: block;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya4.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya1.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya3.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya2.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya4.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya1.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya3.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya2.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya4.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya1.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya3.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya2.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya4.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya1.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya3.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya2.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya4.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya1.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya3.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya2.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya4.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"><img src="converted_whatsapp_images/studio/studio-dvoretckaya1.webp" alt="Студия studio" class="hero-slide w-full h-full absolute top-0 left-0 object-cover transition-opacity duration-1000 ease-in-out" style="opacity: 0; display: none;"></div>
+
+                    <button id="slideshow-prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black bg-opacity-50 text-white hover:bg-opacity-75 transition-colors z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button id="slideshow-next" class="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black bg-opacity-50 text-white hover:bg-opacity-75 transition-colors z-10">
+                        <svg xmlns="http://http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="order-1 md:order-2 md:col-span-2">
+                    <h2 class="section-title text-4xl font-bold mb-4">О студии</h2>
+                    <p class="text-lg text-gray-600 mb-4">
+                        Добро пожаловать в нашу студию — уютное творческое пространство, которое работает с 2015 года и
+                        уже стало местом для всей семьи.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-4">
+                        Если вы любите творить и хотите развивать свои творческие способности, наша студия — идеальное
+                        место для вас. У нас есть занятия как для детей, так и для взрослых.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-4">
+                        Наши преподаватели — профессиональные художники, психологи и педагоги, которые используют
+                        авторские методики.
+                    </p>
+                    <a class="btn-primary inline-block text-white py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all mt-4" href="#directions">Наши направления</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50" id="directions">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-4">Наши направления</h2>
+            <p class="text-lg max-w-2xl mx-auto mb-10 text-gray-600">
+                Мы предлагаем широкий спектр творческих и образовательных программ для всех возрастов.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 items-stretch">
+                <div class="bg-white rounded-3xl shadow-xl p-8 flex flex-col items-start transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-left h-full">
+                    <img alt="Студия Живописи" class="rounded-2xl mb-6 w-full h-48 object-cover" src="img/studijazhivopisi.webp">
+                    <h4 class="font-bold text-2xl text-[#C2828F] mb-4">Студия Живописи</h4>
+                    <ul class="list-disc pl-5 text-base text-gray-700 mb-6 space-y-2">
+                        <li>Для детей и взрослых</li>
+                        <li>Индивидуальные и групповые занятия</li>
+                        <li>Группы до 6 человек</li>
+                        <li>Для любого уровня подготовки</li>
+                        <li>Разные материалы: акрил, акварель, масло, пастель, маркеры и др.</li>
+                        <li>В будни и выходные</li>
+                        <li>Утром и вечером</li>
+                        <li>Преподаватели — профессиональные художники и педагоги с опытом и авторскими программами</li>
+                    </ul>
+                    <div class="space-y-4 w-full mt-auto">
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                            <h5 class="font-semibold text-lg text-gray-900">Абонемент на занятия (1,5 часа)</h5>
+                            <p class="text-[#C2828F] font-bold mt-1">от 4000 ₽</p>
+                            <p class="text-sm text-gray-600 mt-1">С нашими материалами или со своими</p>
+                            <p class="text-sm text-gray-600">Первое занятие — по стоимости абонемента</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+    <h5 class="font-semibold text-lg text-gray-900">Курс “Рисунок. Композиция”</h5>
+    <p class="text-[#C2828F] font-bold mt-1">от 1500 ₽</p>
+    <p class="text-sm text-gray-600">Рисунок, композиция</p>
+    <p class="text-sm text-gray-600">Абонемент — от 6000 ₽</p>
+</div>
+
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                            <h5 class="font-semibold text-lg text-gray-900">Индивидуальные занятия</h5>
+                            <p class="text-[#C2828F] font-bold mt-1">от 2500 ₽</p>
+                        </div>
+                    </div>
+                    <a class="btn-primary text-white py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all w-full mt-6 text-center" href="#contact">Записаться</a>
+                </div>
+                <div class="bg-white rounded-3xl shadow-xl p-8 flex flex-col items-start transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-left h-full">
+                    <img alt="Студия Эбру" class="rounded-2xl mb-6 w-full h-48 object-cover" src="img/stidio-abru.webp">
+                    <h4 class="font-bold text-2xl text-[#C2828F] mb-4">Студия Эбру</h4>
+                    <p class="text-base text-gray-700 mb-4">Погрузитесь в мир живописной магии на воде, создавайте
+                        неповторимые узоры вместе с нами. Пространство студии приглашает индивидуально или группой (до 4
+                        человек) насладиться творчеством и отдохнуть душой.</p>
+                    <ul class="list-disc pl-5 text-base text-gray-700 mb-6 space-y-2">
+                        <li>Развитие воображения и свободы самовыражения</li>
+                        <li>Расслабление и уход от повседневных забот</li>
+                        <li>Освоение древней восточной техники эбру под руководством опытного мастера</li>
+                    </ul>
+                    <div class="space-y-4 w-full mt-auto">
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                            <h5 class="font-semibold text-lg text-gray-900">Абонемент</h5>
+                            <p class="text-[#C2828F] font-bold mt-1">от 3200 ₽</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                            <h5 class="font-semibold text-lg text-gray-900">Мастер-класс</h5>
+                            <p class="text-[#C2828F] font-bold mt-1">от 1500 ₽</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                            <h5 class="font-semibold text-lg text-gray-900">Индивидуальные занятия</h5>
+                            <p class="text-[#C2828F] font-bold mt-1">от 2500 ₽</p>
+                        </div>
+                    </div>
+                    <a class="btn-primary text-white py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all w-full mt-6 text-center" href="#contact">Записаться</a>
+                </div>
+                <div class="bg-white rounded-3xl shadow-xl p-8 flex flex-col items-start transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-left h-full">
+                    <img alt="Студия Песка" class="rounded-2xl mb-6 w-full h-48 object-cover" src="img/studijapeska.webp">
+                    <h4 class="font-bold text-2xl text-[#C2828F] mb-4">Студия Песка</h4>
+                    <p class="text-base text-gray-700 mb-4">Рисование песком на световых столах. Программы по авторской
+                        методике «Развивающий Sand Art»:</p>
+                    <ul class="list-disc pl-5 text-base text-gray-700 mb-6 space-y-2">
+                        <li>«Удивительный Мир» (6–9 лет)</li>
+                        <li>«Географический Цикл» (7–10 лет)</li>
+                        <li>«Исторический Цикл» (8–12 лет)</li>
+                        <li>«Сказки про Эмоции» (4–6 лет)</li>
+                        <li>Терапевтические Сказки (4–7 лет)</li>
+                        <li>«Школа песочных художников» (7–15 лет)</li>
+                        <li>Плассотерапия (работа с кинетическим песком)</li>
+                    </ul>
+                    <div class="space-y-4 w-full mt-auto">
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                            <h5 class="font-semibold text-lg text-gray-900">Абонемент</h5>
+                            <p class="text-[#C2828F] font-bold mt-1">от 3200 ₽</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                            <h5 class="font-semibold text-lg text-gray-900">Индивидуальные занятия</h5>
+                            <p class="text-[#C2828F] font-bold mt-1">от 1500 ₽</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                            <h5 class="font-semibold text-lg text-gray-900">Мастер-Классы</h5>
+                            <p class="text-[#C2828F] font-bold mt-1">от 2000 ₽</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                            <h5 class="font-semibold text-lg text-gray-900">Песочная терапия</h5>
+                            <p class="text-[#C2828F] font-bold mt-1">от 3500 ₽</p>
+                        </div>
+                    </div>
+                    <a class="btn-primary text-white py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all w-full mt-6 text-center" href="#contact">Записаться</a>
+                </div>
+                <div class="bg-white rounded-3xl shadow-xl p-8 flex flex-col items-start transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-left md:col-span-2 lg:col-span-2 h-full">
+                    <img alt="Мастер-классы" class="rounded-2xl mb-6 w-full h-48 md:h-64 lg:h-80 object-cover object-top" src="img/TvorcheskieMK_mini.webp">
+                    <h4 class="font-bold text-2xl text-[#C2828F] mb-4">Мастер-классы</h4>
+                    <p class="text-base text-gray-700 mb-4">Мы проводим уникальные мастер-классы для детей и взрослых по
+                        этим направлениям:</p>
+                    <ul class="list-disc pl-5 text-base text-gray-700 mb-6 space-y-2">
+                        <li>Fluid Art</li>
+                        <li>Мозаика из витражного стекла</li>
+                        <li>Скульптурная живопись</li>
+                        <li>Ботанический барельеф</li>
+                        <li>Флористический коллаж</li>
+                        <li>Валяние из шерсти</li>
+                    </ul>
+                    <a class="btn-outline border-2 border-[#C2828F] text-[#C2828F] py-3 px-8 rounded-full hover:bg-[#C2828F] hover:text-white transition-all w-full mt-6 text-center" href="#contact">Записаться на МК</a>
+                </div>
+                <div class="bg-white rounded-3xl shadow-xl p-8 flex flex-col items-start transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-left h-full">
+                    <img alt="Арт-Проекты" class="rounded-2xl mb-6 w-full h-48 object-cover" src="img/artproject.webp">
+                    <h4 class="font-bold text-2xl text-[#C2828F] mb-4">Арт-Проекты</h4>
+                    <p class="text-base text-gray-700 mb-6">Индивидуальные и групповые творческие проекты для школьников на каникулы</p>
+
+                    <a class="btn-primary text-white py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all w-full mt-auto text-center" href="#contact">Записаться</a>
+                </div>
+            </div>
+        </div>
+        ---
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-12">
+            <h2 class="section-title text-4xl md:text-5xl font-bold mb-4">Наши шоу</h2>
+            <p class="text-lg max-w-2xl mx-auto mb-10 text-gray-600">
+                Песочное и Световое шоу у нас в Студии от художника песочной анимации <strong class="text-[#C2828F]">Марины
+                Сагулиной</strong>
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 items-stretch">
+                <div class="bg-white rounded-3xl shadow-xl p-8 flex flex-col items-start transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-left h-full">
+                    <h4 class="font-bold text-2xl text-[#C2828F] mb-4">Песочные шоу</h4>
+                    <p class="text-base text-gray-700 mb-6">Уникальные и завораживающие песочные шоу — это искусство,
+                        где каждая крупинка песка оживает под руками мастера. Мы предлагаем проведение эксклюзивных
+                        песочных шоу на любых мероприятиях, от детских праздников до корпоративных событий. Это
+                        незабываемое зрелище, которое подарит яркие эмоции и погрузит вас в мир фантазии.</p>
+                    <div class="w-full h-full relative" style="padding-top: 56.25%;">
+                        <video class="absolute inset-0 w-full h-full rounded-2xl" controls="" autoplay="" muted="" loop="">
+                            <source src="img/pesochnoe-shou.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает тег video.
+                        </video>
+                    </div>
+                    <a href="#contact" class="btn-primary w-full py-3 px-4 text-sm font-semibold rounded-md shadow-lg transition-all mt-4 text-center" style="background-color: #C2828F; color: white;">Заказать шоу</a>
+                </div>
+                <div class="bg-white rounded-3xl shadow-xl p-8 flex flex-col items-start transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-left h-full">
+                    <h4 class="font-bold text-2xl text-[#C2828F] mb-4">Световые шоу</h4>
+                    <p class="text-base text-gray-700 mb-6">Погрузитесь в мир света и магии! Наши световые шоу — это
+                        захватывающие представления, где лазерная графика, игра света и музыки создают уникальное
+                        визуальное произведение. Мы предлагаем проведение эксклюзивных световых шоу для любого
+                        мероприятия, от детского праздника до корпоративной вечеринки. Это незабываемое зрелище, которое
+                        подарит яркие эмоции и создаст волшебную атмосферу.</p>
+                    <div class="w-full h-full relative" style="padding-top: 56.25%;">
+                        <video class="absolute inset-0 w-full h-full rounded-2xl" controls="" autoplay="" muted="" loop="">
+                            <source src="img/svetovoe-shou.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <a href="#contact" class="btn-primary w-full py-3 px-4 text-sm font-semibold rounded-md shadow-lg transition-all mt-4 text-center" style="background-color: #C2828F; color: white;">Заказать шоу</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="py-20 bg-gray-100" id="teachers">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="section-title text-4xl font-extrabold text-gray-900 mb-4">НАША КОМАНДА</h2>
+            <p class="text-lg max-w-2xl mx-auto text-gray-600 mb-12">
+                Знакомьтесь с командой профессиональных художников и педагогов, которые помогут вам раскрыть ваш
+                творческий потенциал.
+            </p>
+            <div class="bg-white p-12 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 mb-20 mx-auto max-w-3xl">
+                <div class="flex flex-col items-center">
+                    <button class="focus:outline-none" id="openModalBtn">
+                        <img alt="Ольга Дворецкая" class="w-64 h-64 rounded-full mb-6 border-4 border-white shadow-lg object-cover object-center transform transition-transform duration-300 hover:scale-105 cursor-pointer" src="img/olga-dvoretckaya.webp">
+                    </button>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-2">Ольга Владимировна Дворецкая</h3>
+                    <p class="text-lg font-semibold text-gray-600 mb-6">Основатель, руководитель и педагог Студии
+                        Песка</p>
+                    <div class="text-center max-w-2xl">
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            Основатель первой в Московской области Студии по рисованию песком и песочной терапии (с 2015
+                            г.).
+                            Педагог с более чем 25-летним стажем, художник, арт-терапевт и психолог.
+                        </p>
+                        <ul class="text-left text-gray-700 space-y-2 mb-4 list-disc list-inside">
+                            <li><span class="font-semibold">Образование:</span> психолого-педагогическое (КПИ, 1999),
+    практическая психология и психотерапия (ИППиП, 2007), дизайнер, декоратор (IDS,
+    2006–2008).
+</li>
+
+                            <li><span class="font-semibold">Методики:</span> Sand Art, песочная терапия (юнгианский
+                                подход), инновационная арт-терапия «Живой песок».
+                            </li>
+                            <li><span class="font-semibold">Опыт:</span> ведение арт-терапевтических групп для детей и
+                                взрослых, работа с детьми с особенностями развития, психологическое консультирование.
+                            </li>
+                            <li><span class="font-semibold">Автор:</span> развивающих программ для детей с 4 лет, курсов
+                                «Маленькие истории о Большом Искусстве» и «Creativity Class», арт-проектов с 2017 г.
+                            </li>
+                            <li><span class="font-semibold">Студия песка:</span> художник песочной анимации («Школа
+                                Алины Хайруллиной», 2021), участница фильма и форумов по песочной терапии.
+                            </li>
+                            <li><span class="font-semibold">Студия Эбру:</span> обучение технике Эбру у ведущих мастеров
+                                (Санкт-Петербург, Москва, Нижний Новгород).
+                            </li>
+                        </ul>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            В Студии проводит групповые и индивидуальные занятия, мастер-классы и психологические
+                            консультации, помогая детям и взрослым раскрывать творческий потенциал.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left">
+                <div class="bg-white p-8 rounded-lg shadow-md flex flex-col justify-start transform transition-transform duration-300 hover:-translate-y-2">
+                    <h3 class="text-2xl font-bold mb-2 text-gray-900">Александр Постовалов</h3>
+                    <p class="text-md font-semibold text-gray-600 mb-4">Педагог</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Художник, член Ассоциации Русских художников в Париже</strong> (с 2004 г.). Его
+                            работы представлены в музеях и частных коллекциях по всему миру.
+                        </li>
+                        <li><strong>Образование:</strong> Российский государственный художественно-промышленный университет им. С.Г. Строганова, Абрамцевский художественно-промышленный колледж им. В.М. Васнецова.</li>
+
+                        <li><strong>Специализация:</strong> Курирует направление "АКАДЕМИЧЕСКИЙ РИСУНОК. КОМПОЗИЦИЯ".
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md flex flex-col justify-start transform transition-transform duration-300 hover:-translate-y-2">
+                    <h3 class="text-2xl font-bold mb-2 text-gray-900">Елена Шлосберг</h3>
+                    <p class="text-md font-semibold text-gray-600 mb-4">Педагог</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Художник и чуткий педагог.</strong> Работает с разными материалами, включая акрил,
+                            масло, пастель и акварельные маркеры.
+                        </li>
+                        <li><strong>Образование:</strong> Обучалась у выдающихся мастеров — Михаила Сатарова и Игоря
+                            Володькина, чьи наставления до сих пор звучат в каждом штрихе. Член международного
+                            художественного союза.
+                        </li>
+                        <li><strong>Специализация:</strong> Курирует направление Масло, акрил, пастель, акварель —
+                            разные техники.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md flex flex-col justify-start transform transition-transform duration-300 hover:-translate-y-2">
+                    <h3 class="text-2xl font-bold mb-2 text-gray-900">Ирада Аббасова</h3>
+                    <p class="text-md font-semibold text-gray-600 mb-4">Педагог</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Самый молодой педагог в нашей команде.</strong> Работает с различными
+                            художественными материалами, предпочитая яркий акрил и глубокое масло.
+                        </li>
+                        <li><strong>Образование:</strong> Окончила Художественную школу с отличием. В настоящее время
+                            студентка Гжельского государственного университета (факультет: Живопись).
+                        </li>
+                        <li><strong>Специализация:</strong> Курирует курс "Живопись. Масло" для взрослых и подростков и
+                            проводит мастер-классы.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4" id="imageModal">
+            <div class="relative max-w-3xl mx-auto">
+                <button class="absolute -top-3 -right-3 w-8 h-8 flex items-center justify-center text-xl font-bold text-white bg-red-600 rounded-full hover:bg-red-700 transition-colors duration-200 focus:outline-none" id="closeModalBtn">
+                    ×
+                </button>
+                <img alt="Ольга Дворецкая" class="w-full h-auto rounded-lg shadow-xl" src="img/olga-dvoretckaya.webp">
+            </div>
+        </div>
+    </section>
+
+    <div class="mt-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto py-8 px-6 sm:py-10 sm:px-12 lg:px-16 rounded-xl shadow-xl flex flex-col md:flex-row items-center justify-between" style="background-color: rgb(194, 130, 143);">
+        <div class="text-center md:text-left mb-6 md:mb-0">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-2">
+                Есть вопросы?
+            </h2>
+            <p class="text-lg text-white">
+                Запишитесь на онлайн-консультацию с основателем студии, <strong>Ольгой Дворецкой</strong>.
+            </p>
+        </div>
+        <div>
+            <a class="inline-block px-8 py-4 bg-white text-rose-800 font-bold rounded-full shadow-lg hover:bg-gray-100 transition-colors duration-200" href="https://t.me/+79264281144">
+                Поговорить с Ольгой в Telegram
+            </a>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        const openModalBtn = document.getElementById('openModalBtn');
+        const imageModal = document.getElementById('imageModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        openModalBtn.addEventListener('click', () => {
+            imageModal.classList.remove('hidden');
+            imageModal.classList.add('flex');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            imageModal.classList.remove('flex');
+            imageModal.classList.add('hidden');
+        });
+
+        // Закрытие по клику за пределами изображения
+        imageModal.addEventListener('click', (e) => {
+            if (e.target.id === 'imageModal') {
+                imageModal.classList.remove('flex');
+                imageModal.classList.add('hidden');
+            }
+        });
+    </script>
+    <section class="py-20 bg-gray-50" id="gallery">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="section-title text-4xl font-bold mb-4">Галерея</h2>
+            <p class="text-lg max-w-2xl mx-auto mb-10">
+                Посмотрите, что создают наши ученики.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <button class="filter-btn py-2 px-6 rounded-full hover:bg-[#A56A75] transition-colors active bg-[#C2828F] text-white" data-filter="all">Все работы
+                </button>
+                <button class="filter-btn py-2 px-6 rounded-full text-gray-700 border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="painting">Живопись
+                </button>
+                <button class="filter-btn py-2 px-6 rounded-full text-gray-700 border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="sand">Песок
+                </button>
+                <button class="filter-btn py-2 px-6 rounded-full text-gray-700 border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="ebru">Эбру
+                </button>
+                <button class="filter-btn py-2 px-6 rounded-full text-gray-700 border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="masterclass">Мастер-классы
+                </button>
+                <button class="filter-btn py-2 px-6 rounded-full text-gray-700 border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="birthdays">Дни рождения
+                </button>
+                <button class="filter-btn py-2 px-6 rounded-full text-gray-700 border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="art_projects">Арт-проекты
+                </button>
+                <button class="filter-btn py-2 px-6 rounded-full text-gray-700 border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="sand_shows">Песочные и световые шоу
+                </button>
+
+            </div>
+
+            <div id="thumbnail-gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4"><div class="image-container rounded-lg shadow-md hover-scale" data-category="studio"><img src="converted_whatsapp_images/studio/studio-dvoretckaya3.webp" alt="studio" loading="lazy"></div><div class="image-container rounded-lg shadow-md hover-scale" data-category="studio"><img src="converted_whatsapp_images/studio/studio-dvoretckaya2.webp" alt="studio" loading="lazy"></div><div class="image-container rounded-lg shadow-md hover-scale" data-category="studio"><img src="converted_whatsapp_images/studio/studio-dvoretckaya4.webp" alt="studio" loading="lazy"></div><div class="image-container rounded-lg shadow-md hover-scale" data-category="studio"><img src="converted_whatsapp_images/studio/studio-dvoretckaya1.webp" alt="studio" loading="lazy"></div><div class="image-container rounded-lg shadow-md hover-scale" data-category="ebru"><img src="converted_whatsapp_images/ebru/abru.webp" alt="ebru" loading="lazy"></div><div class="image-container rounded-lg shadow-md hover-scale" data-category="MK"><img src="converted_whatsapp_images/MK/mk-dvoretckaya1.webp" alt="MK" loading="lazy"></div><div class="image-container rounded-lg shadow-md hover-scale" data-category="MK"><img src="converted_whatsapp_images/MK/mk-dvoretckaya6.webp" alt="MK" loading="lazy"></div><div class="image-container rounded-lg shadow-md hover-scale" data-category="MK"><img src="converted_whatsapp_images/MK/mk-dvoretckaya7.webp" alt="MK" loading="lazy"></div></div>
+
+            <div class="flex justify-center mt-10">
+                <button id="show-more-btn" class="btn-primary py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all text-white" style="display: inline-block;">
+                    Показать ещё
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="modal-gallery">
+        <div class="relative w-full h-full flex items-center justify-center">
+            <button class="absolute top-4 right-4 text-white text-3xl z-50 focus:outline-none" id="close-modal">×
+            </button>
+            <button class="absolute left-4 z-40 text-white text-5xl opacity-70 hover:opacity-100 transition-opacity duration-200 top-1/2 -translate-y-1/2" id="prev-btn">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="absolute right-4 z-40 text-white text-5xl opacity-70 hover:opacity-100 transition-opacity duration-200 top-1/2 -translate-y-1/2" id="next-btn">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+            <img alt="Просмотр работы" class="max-w-full max-h-full object-contain rounded-lg" id="modal-image" src="">
+        </div>
+    </div>
+
+    <section class="py-20 bg-gray-50" id="testimonials">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="section-title text-4xl font-bold mb-4">Что говорят наши ученики</h2>
+            <p class="text-lg max-w-2xl mx-auto mb-10">
+                Реальные истории успеха и вдохновения.
+            </p>
+            <div id="feedback-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+            <div class="flex justify-center mt-6 gap-4">
+                <button id="prevBtn" class="bg-gray-200 text-gray-800 p-3 rounded-full hover:bg-gray-300 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+                    </svg>
+                </button>
+                <button id="nextBtn" class="bg-gray-200 text-gray-800 p-3 rounded-full hover:bg-gray-300 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20" id="how-it-works">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="section-title text-4xl font-bold mb-4">Как проходят наши занятия</h2>
+            <p class="text-lg max-w-2xl mx-auto mb-10">
+                Мы создали простую и эффективную систему, чтобы ваше обучение было максимально комфортным.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md">
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-[#C2828F] text-white text-3xl font-bold mb-4">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Подбор программы</h3>
+                    <p class="text-sm text-gray-600">
+                        Мы знакомимся, обсуждаем ваши цели и подбираем идеальную программу обучения, которая
+                        соответствует вашим навыкам и интересам.
+                    </p>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md">
+    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-[#C2828F] text-white text-3xl font-bold mb-4">
+        2
+    </div>
+    <h3 class="text-xl font-bold mb-2">Начало обучения</h3>
+    <p class="text-sm text-gray-600">
+        Студия предоставляет список рекомендуемых материалов для занятий, чтобы вы ничего не забыли.
+    </p>
+</div>
+
+
+
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md">
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-[#C2828F] text-white text-3xl font-bold mb-4">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Создание шедевра</h3>
+                    <p class="text-sm text-gray-600">
+                        Под руководством опытного преподавателя вы создаете свою первую картину, а затем и другие
+                        работы, развивая свой уникальный стиль.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-20 bg-white" id="contact">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="section-title text-4xl font-bold mb-4">Свяжитесь с нами</h2>
+            <p class="text-lg max-w-2xl mx-auto mb-10 text-gray-600">
+                Готовы начать творить? Оставьте свои данные, и мы свяжемся с вами, чтобы подобрать удобное время для
+                занятия.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Контакты -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-[#C2828F]">Контакты</h3>
+                        <p class="mb-2"><i class="bi bi-geo-alt-fill text-[#C2828F] mr-2"></i>
+                            <b>Адрес:</b> г. Раменское, ул. Северное шоссе, д.4, офис 22 (2-й этаж, домофон 22)
+                        </p>
+                        <p class="mb-2 text-gray-600">
+                            <b>Как найти:</b> Напротив ДС "Борисоглебский" находится магазин "Пятёрочка". Студия в том
+                            же здании, вход со двора ЖК.
+                        </p>
+                        <div class="w-full relative rounded-2xl overflow-hidden shadow-md mb-4" style="padding-top: 56.25%;">
+                            <video class="absolute inset-0 w-full h-full object-cover" controls playsinline preload="metadata">
+                                <source src="img/kak-dobratsya.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает тег video.
+                            </video>
+                        </div>
+                        <p class="mb-2"><i class="bi bi-clock-fill text-[#C2828F] mr-2"></i> Пн-Вс: 10:00 - 20:00</p>
+                        <p class="mb-4"><i class="bi bi-phone-fill text-[#C2828F] mr-2"></i> <a class="hover:underline" href="tel:+79264281144">+7
+                            (926) 428-11-44</a></p>
+                        <div class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-gray-200">
+                            <img src="img/kid-friendly-badge.webp" alt="Kid-friendly" class="w-16 flex-shrink-0">
+                            <p class="text-sm text-gray-600">
+                                Мы — партнёры <a href="https://kidfriendly.ru/" target="_blank" rel="noopener" class="text-[#C2828F] font-semibold hover:underline">Kid-friendly</a>.
+                                Здесь ребёнка проводят в туалетную комнату, дадут попить воды и отдохнуть от городской суеты.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+
+                        <div class="flex space-x-4 items-center text-2xl">
+
+                            <!-- VK Custom Button -->
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Форма -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-[#C2828F]">Оставить заявку</h3>
+                    <form class="space-y-4" id="contact-form" novalidate="">
+                        <!-- Honeypot: скрыто от людей, боты обычно заполняют все поля -->
+                        <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        <input type="hidden" id="form_ts" name="form_ts" value="">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700" for="name">Ваше имя</label>
+                            <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#C2828F] focus:ring-[#C2828F] sm:text-sm p-2" id="name" name="name" placeholder="Иван" type="text" required="">
+                            <p class="text-red-500 text-sm mt-1 hidden" id="error-name">Введите имя</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700" for="phone">Номер телефона</label>
+                            <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#C2828F] focus:ring-[#C2828F] sm:text-sm p-2" id="phone" name="phone" placeholder="+7 (999) 999-99-99" type="tel" required="">
+                            <p class="text-red-500 text-sm mt-1 hidden" id="error-phone">Введите корректный телефон</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700" for="message">Сообщение
+                                (необязательно)</label>
+                            <textarea class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#C2828F] focus:ring-[#C2828F] sm:text-sm p-2" id="message" name="message" placeholder="Хочу записаться на курс..." rows="4"></textarea>
+                        </div>
+                        <button id="submit-btn" class="btn-primary w-full py-3 px-4 text-sm font-semibold rounded-md shadow-lg transition-all" type="submit">
+                            Отправить заявку
+                        </button>
+                        <p class="text-green-500 text-sm mt-2 hidden" id="success-msg">Заявка успешно отправлена!</p>
+                        <p class="text-red-500 text-sm mt-2 hidden" id="error-msg">Ошибка! Попробуйте позже.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Скрипт формы -->
+        <script>
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const errorName = document.getElementById('error-name');
+            const errorPhone = document.getElementById('error-phone');
+            const successMsg = document.getElementById('success-msg');
+            const errorMsg = document.getElementById('error-msg');
+
+            // Метка времени рендера формы — боты обычно отправляют форму мгновенно
+            document.getElementById('form_ts').value = Date.now();
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Сброс ошибок
+                errorName.classList.add('hidden');
+                errorPhone.classList.add('hidden');
+                successMsg.classList.add('hidden');
+                errorMsg.classList.add('hidden');
+
+                let name = form.name.value.trim();
+                let phone = form.phone.value.trim();
+                let message = form.message.value.trim();
+                let website = form.website.value.trim(); // honeypot
+                let form_ts = form.form_ts.value;
+
+                let hasError = false;
+                if (!name) {
+                    errorName.classList.remove('hidden');
+                    hasError = true;
+                }
+                if (!phone) {
+                    errorPhone.classList.remove('hidden');
+                    hasError = true;
+                }
+                if (hasError) return;
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправка...';
+
+                try {
+                    const response = await fetch('send.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, phone, message, website, form_ts })
+                    });
+                    const data = await response.json();
+
+                    if (data.status === 'ok') {
+                        successMsg.classList.remove('hidden');
+                        form.reset();
+                    } else {
+                        errorMsg.classList.remove('hidden');
+                    }
+                } catch (err) {
+                    errorMsg.classList.remove('hidden');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Отправить заявку';
+                }
+            });
+        </script>
+    </section>
+
+</main>
+<footer class="bg-[#C2828F] text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+            <div>
+                <h3 class="text-lg font-bold mb-3">Студия творчества и вдохновения</h3>
+                <p class="text-sm mb-2"><i class="bi bi-geo-alt-fill mr-2"></i>г. Раменское, ул. Северное шоссе, д.4, офис 22</p>
+                <p class="text-sm mb-2"><i class="bi bi-clock-fill mr-2"></i>Пн-Вс: 10:00 - 20:00</p>
+                <p class="text-sm mb-4"><i class="bi bi-phone-fill mr-2"></i><a class="hover:underline" href="tel:+79264281144">+7 (926) 428-11-44</a></p>
+                <div style="width:220px;height:135px;overflow:visible;" class="mx-auto md:mx-0">
+                    <iframe src="https://yandex.ru/sprav/widget/rating-badge/1377858354?type=award" width="220" height="80" frameborder="0" style="transform:scale(1.6);transform-origin:top left;border:0;"></iframe>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-3">Разделы сайта</h3>
+                <ul class="text-sm space-y-2">
+                    <li><a class="hover:underline" href="#about">О студии</a></li>
+                    <li><a class="hover:underline" href="#directions">Направления</a></li>
+                    <li><a class="hover:underline" href="#teachers">Команда</a></li>
+                    <li><a class="hover:underline" href="#gallery">Галерея</a></li>
+                    <li><a class="hover:underline" href="#testimonials">Отзывы</a></li>
+                    <li><a class="hover:underline" href="#contact">Контакты и запись</a></li>
+                    <li><a class="hover:underline" href="https://studio.dvoretckaya.ru/offer.pdf" target="_blank">Договор-оферта</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-3">Мы на связи</h3>
+                <div class="flex justify-center md:justify-start space-x-4 mb-4">
+                    <a href="https://wa.me/+79264281144" target="_blank" class="bg-[#25D366] text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" aria-label="Связаться по WhatsApp" style="width:2.75rem;height:2.75rem;">
+                        <i class="bi bi-whatsapp text-2xl"></i>
+                    </a>
+                    <a href="https://t.me/+79264281144" target="_blank" class="bg-[#26A5E4] text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" aria-label="Связаться по Telegram" style="width:2.75rem;height:2.75rem;">
+                        <i class="bi bi-telegram text-2xl"></i>
+                    </a>
+                    <a href="https://max.ru/join/sXg6YJ9yS0nZbIOu2Z-7NwmbvnI0BqwzlVoCQhJzgWQ" target="_blank" class="bg-[#8B1E3F] text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" aria-label="Связаться в MAX" style="width:2.75rem;height:2.75rem;">
+                        <span class="font-extrabold text-xs leading-none">MAX</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-white/20 mt-8 pt-6 text-center text-sm space-x-4">
+            <span>© 2024 Студия творчества и вдохновения. Все права защищены.</span>
+        </div>
+    </div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const filters = document.querySelectorAll('.filter-btn');
+        const gallery = document.getElementById('thumbnail-gallery');
+        const showMoreBtn = document.getElementById('show-more-btn');
+        let allImages = [];
+        let visibleImagesCount = 8; // Начальное количество отображаемых изображений
+        const imagesPerLoad = 4; // Количество изображений для загрузки при клике на "Показать ещё"
+
+        // ***ИСПРАВЛЕННАЯ И ПОЛНАЯ КАРТА КАТЕГОРИЙ***
+        const categoryMap = {
+            'painting': 'zhivopis',
+            'sand': 'studija_peska',
+            'ebru': 'ebru',
+            'masterclass': 'MK',
+            'birthdays': 'Dni_rozhdenija',
+            'art_projects': 'art_proekty',
+            'sand_shows': 'pesochnye_i_svetovye_shou',
+            'reviews': 'otzyvy'
+        };
+
+        // Функция для отображения изображений
+        const renderImages = (imagesToRender) => {
+            gallery.innerHTML = '';
+            imagesToRender.forEach(image => {
+                const imageContainer = document.createElement('div');
+                imageContainer.classList.add('image-container', 'rounded-lg', 'shadow-md', 'hover-scale');
+                imageContainer.dataset.category = image.category;
+
+                const img = document.createElement('img');
+                img.src = 'converted_whatsapp_images/' + image.path;
+                img.alt = image.category;
+                img.loading = 'lazy';
+
+                imageContainer.appendChild(img);
+                gallery.appendChild(imageContainer);
+            });
+        };
+
+        // Функция для обновления кнопки "Показать ещё"
+        const updateShowMoreButton = (currentFilter) => {
+            let filteredImages;
+            if (currentFilter === 'all') {
+                filteredImages = allImages;
+            } else {
+                const jsonCategory = categoryMap[currentFilter];
+                filteredImages = allImages.filter(img => img.category === jsonCategory);
+            }
+
+            if (visibleImagesCount >= filteredImages.length) {
+                showMoreBtn.style.display = 'none';
+            } else {
+                showMoreBtn.style.display = 'inline-block';
+            }
+        };
+
+        // Обработчик кнопки "Показать ещё"
+        showMoreBtn.addEventListener('click', () => {
+            const currentFilter = document.querySelector('.filter-btn.active').dataset.filter;
+            let filteredImages;
+            if (currentFilter === 'all') {
+                filteredImages = allImages;
+            } else {
+                const jsonCategory = categoryMap[currentFilter];
+                filteredImages = allImages.filter(img => img.category === jsonCategory);
+            }
+            visibleImagesCount += imagesPerLoad;
+
+            renderImages(filteredImages.slice(0, visibleImagesCount));
+            updateShowMoreButton(currentFilter);
+        });
+
+        // Лайтбокс: клик по превью открывает увеличенное фото с навигацией prev/next
+        const modalGallery = document.getElementById('modal-gallery');
+        const modalImage = document.getElementById('modal-image');
+        const closeModalBtn2 = document.getElementById('close-modal');
+        const prevBtn2 = document.getElementById('prev-btn');
+        const nextBtn2 = document.getElementById('next-btn');
+        let currentLightboxIndex = 0;
+
+        const openLightbox = (index) => {
+            const imgs = gallery.querySelectorAll('.image-container img');
+            if (!imgs.length) return;
+            currentLightboxIndex = (index + imgs.length) % imgs.length;
+            modalImage.src = imgs[currentLightboxIndex].src;
+            modalGallery.classList.add('visible');
+        };
+
+        const closeLightbox = () => {
+            modalGallery.classList.remove('visible');
+        };
+
+        if (gallery && modalGallery && modalImage) {
+            gallery.addEventListener('click', (e) => {
+                const container = e.target.closest('.image-container');
+                if (!container) return;
+                const imgs = Array.from(gallery.querySelectorAll('.image-container'));
+                openLightbox(imgs.indexOf(container));
+            });
+
+            closeModalBtn2.addEventListener('click', closeLightbox);
+            prevBtn2.addEventListener('click', () => openLightbox(currentLightboxIndex - 1));
+            nextBtn2.addEventListener('click', () => openLightbox(currentLightboxIndex + 1));
+
+            // Клик по тёмному фону (не по самому фото) тоже закрывает
+            modalGallery.addEventListener('click', (e) => {
+                if (e.target === modalGallery) closeLightbox();
+            });
+
+            // Клавиатура: Esc закрывает, стрелки листают
+            document.addEventListener('keydown', (e) => {
+                if (!modalGallery.classList.contains('visible')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') openLightbox(currentLightboxIndex - 1);
+                if (e.key === 'ArrowRight') openLightbox(currentLightboxIndex + 1);
+            });
+        }
+
+        // Загрузка данных из JSON
+        fetch('gallery_data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Преобразуем данные в плоский массив объектов
+                data.forEach(categoryData => {
+                    const category = categoryData.category;
+                    categoryData.images.forEach(imagePath => {
+                        allImages.push({ category: category, path: imagePath });
+                    });
+                });
+
+                // Обработчик кнопок фильтрации
+                filters.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const filter = button.dataset.filter;
+
+                        // Удаляем класс 'active' со всех кнопок
+                        filters.forEach(btn => {
+                            btn.classList.remove('active', 'bg-[#C2828F]', 'text-white');
+                            btn.classList.add('text-gray-700', 'border', 'border-gray-300', 'hover:bg-gray-200');
+                        });
+
+                        // Добавляем класс 'active' к текущей кнопке
+                        button.classList.add('active', 'bg-[#C2828F]', 'text-white');
+                        button.classList.remove('text-gray-700', 'border', 'border-gray-300', 'hover:bg-gray-200');
+
+                        visibleImagesCount = 8; // Сбрасываем счетчик при смене фильтра
+
+                        let filteredImages;
+                        if (filter === 'all') {
+                            filteredImages = allImages;
+                        } else {
+                            const jsonCategory = categoryMap[filter];
+                            filteredImages = allImages.filter(img => img.category === jsonCategory);
+                        }
+
+                        renderImages(filteredImages.slice(0, visibleImagesCount));
+                        updateShowMoreButton(filter);
+                    });
+                });
+
+                // Инициализация: отображаем все изображения при загрузке страницы
+                renderImages(allImages.slice(0, visibleImagesCount));
+                updateShowMoreButton('all');
+            })
+            .catch(error => console.error("Ошибка загрузки данных галереи:", error));
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const openModalButtons = document.querySelectorAll('.open-video-modal');
+        const videoModal = document.getElementById('video-modal');
+        const videoPlayer = document.getElementById('video-player');
+        const closeModalButton = document.getElementById('close-video-modal');
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const videoSrc = button.dataset.videoSrc;
+                if (videoSrc) {
+                    videoPlayer.src = videoSrc;
+                    videoModal.classList.remove('hidden');
+                    videoModal.classList.add('flex');
+                    videoPlayer.load();
+                    videoPlayer.play();
+                }
+            });
+        });
+
+        closeModalButton.addEventListener('click', () => {
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
+            videoModal.classList.remove('flex');
+            videoModal.classList.add('hidden');
+        });
+
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoPlayer.pause();
+                videoPlayer.currentTime = 0;
+                videoModal.classList.remove('flex');
+                videoModal.classList.add('hidden');
+            }
+        });
+
+        // Дополнительный обработчик для клика по самим превью
+        const previewContainers = document.querySelectorAll('.group.relative.rounded-lg.overflow-hidden');
+        previewContainers.forEach(container => {
+            container.addEventListener('click', () => {
+                const videoSrc = container.dataset.videoSrc;
+                if (videoSrc) {
+                    videoPlayer.src = videoSrc;
+                    videoModal.classList.remove('hidden');
+                    videoModal.classList.add('flex');
+                    videoPlayer.load();
+                    videoPlayer.play();
+                }
+            });
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuDropdown.classList.toggle('hidden');
+        });
+    });
+</script>
+<div class="fixed bottom-8 right-8 z-50 flex flex-col space-y-4">
+    <a href="https://t.me/+79264281144" class="bg-[#26A5E4] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" target="_blank" aria-label="Связаться с нами по Telegram" style="width:3.5rem;height:3.5rem;">
+        <i class="bi bi-telegram text-2xl"></i>
+    </a>
+    <a href="https://max.ru/join/sXg6YJ9yS0nZbIOu2Z-7NwmbvnI0BqwzlVoCQhJzgWQ" class="bg-[#8B1E3F] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" target="_blank" aria-label="Связаться с нами в MAX" style="width:3.5rem;height:3.5rem;">
+        <span class="font-extrabold text-sm leading-none">MAX</span>
+    </a>
+    <a href="https://wa.me/+79264281144" class="bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" target="_blank" aria-label="Связаться с нами по WhatsApp" style="width:3.5rem;height:3.5rem;">
+        <i class="bi bi-whatsapp text-2xl"></i>
+    </a>
+</div>
+
+<script>
+    (function() {
+      var ws = new WebSocket('ws://' + window.location.host +
+                 '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+                 'referrer=' + encodeURIComponent(window.location.pathname));
+      ws.onmessage = function (msg) {
+          if (msg.data === 'reload') {
+              window.location.reload();
+          }
+          if (msg.data.startsWith('update-css ')) {
+              var messageId = msg.data.substring(11);
+              var links = document.getElementsByTagName('link');
+              for (var i = 0; i < links.length; i++) {
+                  var link = links[i];
+                  if (link.rel !== 'stylesheet') continue;
+                  var clonedLink = link.cloneNode(true);
+                  var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+                  if (newHref !== link.href) {
+                    clonedLink.href = newHref;
+                  }
+                  else {
+                    var indexOfQuest = newHref.indexOf('?');
+                    if (indexOfQuest >= 0) {
+                      // to support ?foo#hash
+                      clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                        newHref.substring(indexOfQuest + 1);
+                    }
+                    else {
+                      clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                    }
+                  }
+                  link.replaceWith(clonedLink);
+              }
+          }
+      };
+    })();
+</script>
+<script type="text/javascript">
+    VK.init({
+      apiId: ВАШ_API_ID,
+      onlyWidgets: true
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const slideshowContainer = document.getElementById('hero-slideshow-container');
+        const prevBtn = document.getElementById('slideshow-prev');
+        const nextBtn = document.getElementById('slideshow-next');
+        let slideIndex = 0;
+        let images = [];
+
+        // Получаем данные из JSON
+        fetch('gallery_data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Ищем категорию "studio" и добавляем все её изображения
+                const studioData = data.find(item => item.category === 'studio');
+
+                if (studioData) {
+                    studioData.images.forEach(imagePath => {
+                        images.push({ path: 'converted_whatsapp_images/' + imagePath, category: 'studio' });
+                    });
+                }
+
+                // 🔹 Убираем возможные дубли по пути
+                images = images.filter((img, index, self) =>
+                    index === self.findIndex(t => t.path === img.path)
+                );
+
+                // Функция для отображения текущего слайда
+                const showSlide = (n) => {
+                    const slides = document.querySelectorAll('.hero-slide');
+                    if (slides.length === 0) return;
+
+                    if (n >= slides.length) slideIndex = 0;
+                    if (n < 0) slideIndex = slides.length - 1;
+
+                    slides.forEach(slide => {
+                        slide.style.opacity = 0;
+                        slide.style.display = 'none';
+                    });
+
+                    slides[slideIndex].style.display = 'block';
+                    setTimeout(() => slides[slideIndex].style.opacity = 1, 10);
+                };
+
+                // Создание элементов img для всех изображений
+                images.forEach((image) => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = image.path;
+                    imgElement.alt = "Студия " + image.category;
+                    imgElement.classList.add(
+                        'hero-slide', 'w-full', 'h-full', 'absolute',
+                        'top-0', 'left-0', 'object-cover',
+                        'transition-opacity', 'duration-1000', 'ease-in-out'
+                    );
+                    imgElement.style.opacity = 0;
+                    imgElement.style.display = 'none';
+                    slideshowContainer.appendChild(imgElement);
+                });
+
+                // Изначальное отображение первого слайда
+                showSlide(slideIndex);
+
+                // Автоматическое переключение
+                const nextSlide = () => {
+                    slideIndex++;
+                    showSlide(slideIndex);
+                };
+                setInterval(nextSlide, 5000);
+
+                // Кнопки
+                prevBtn.addEventListener('click', () => {
+                    slideIndex--;
+                    showSlide(slideIndex);
+                });
+                nextBtn.addEventListener('click', () => {
+                    slideIndex++;
+                    showSlide(slideIndex);
+                });
+            })
+            .catch(error => console.error("Ошибка загрузки данных для слайд-шоу:", error));
+    });
+</script>
+
+
+
+<!--<script>-->
+<!--    document.addEventListener("DOMContentLoaded", function() {-->
+<!--        const slideshowContainer = document.getElementById('hero-slideshow-container');-->
+<!--        const prevBtn = document.getElementById('slideshow-prev');-->
+<!--        const nextBtn = document.getElementById('slideshow-next');-->
+<!--        let slideIndex = 0;-->
+<!--        let images = [];-->
+
+<!--        // Получаем данные из JSON-->
+<!--        fetch('gallery_data.json')-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => {-->
+<!--                // Добавляем ваше первое изображение в начало массива-->
+<!--                images.push({ path: 'img/hero.webp', category: 'hero' });-->
+
+<!--                // Ищем категорию "studio" и добавляем все её изображения-->
+<!--                const studioData = data.find(item => item.category === 'studio');-->
+
+<!--                if (studioData) {-->
+<!--                    studioData.images.forEach(imagePath => {-->
+<!--                        images.push({ path: 'converted_whatsapp_images/' + imagePath, category: 'studio' });-->
+<!--                    });-->
+<!--                }-->
+
+<!--                // Функция для отображения текущего слайда-->
+<!--                const showSlide = (n) => {-->
+<!--                    const slides = document.querySelectorAll('.hero-slide');-->
+<!--                    if (slides.length === 0) return;-->
+
+<!--                    // Обнуляем текущий индекс, если он выходит за границы-->
+<!--                    if (n >= slides.length) slideIndex = 0;-->
+<!--                    if (n < 0) slideIndex = slides.length - 1;-->
+
+<!--                    // Скрываем все слайды-->
+<!--                    slides.forEach(slide => {-->
+<!--                        slide.style.opacity = 0;-->
+<!--                        slide.style.display = 'none';-->
+<!--                    });-->
+
+<!--                    // Показываем текущий слайд-->
+<!--                    slides[slideIndex].style.display = 'block';-->
+<!--                    setTimeout(() => slides[slideIndex].style.opacity = 1, 10);-->
+<!--                };-->
+
+<!--                // Создание элементов img для всех изображений-->
+<!--                images.forEach((image) => {-->
+<!--                    const imgElement = document.createElement('img');-->
+<!--                    imgElement.src = image.path;-->
+<!--                    imgElement.alt = "Студия " + image.category;-->
+<!--                    imgElement.classList.add('hero-slide', 'w-full', 'h-full', 'absolute', 'top-0', 'left-0', 'object-cover', 'transition-opacity', 'duration-1000', 'ease-in-out');-->
+<!--                    imgElement.style.opacity = 0;-->
+<!--                    imgElement.style.display = 'none';-->
+<!--                    slideshowContainer.appendChild(imgElement);-->
+<!--                });-->
+
+<!--                // Изначальное отображение первого слайда-->
+<!--                showSlide(slideIndex);-->
+
+<!--                // Функция для автоматического переключения слайдов-->
+<!--                const nextSlide = () => {-->
+<!--                    slideIndex++;-->
+<!--                    showSlide(slideIndex);-->
+<!--                };-->
+
+<!--                // Автоматическое переключение каждые 5 секунд-->
+<!--                setInterval(nextSlide, 5000);-->
+
+<!--                // Обработчики для кнопок "назад" и "вперёд"-->
+<!--                prevBtn.addEventListener('click', () => {-->
+<!--                    slideIndex&#45;&#45;;-->
+<!--                    showSlide(slideIndex);-->
+<!--                });-->
+
+<!--                nextBtn.addEventListener('click', () => {-->
+<!--                    slideIndex++;-->
+<!--                    showSlide(slideIndex);-->
+<!--                });-->
+<!--            })-->
+<!--            .catch(error => console.error("Ошибка загрузки данных для слайд-шоу:", error));-->
+<!--    });-->
+<!--</script>-->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const feedbackContainer = document.getElementById('feedback-container');
+
+        // Загрузка данных из JSON
+        fetch('gallery_data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Ищем категорию "otzyvy" в данных
+                const reviewsData = data.find(item => item.category === 'otzyvy');
+
+                if (reviewsData && reviewsData.images.length > 0) {
+                    feedbackContainer.innerHTML = ''; // очищаем перед вставкой — не дублируем
+                    reviewsData.images.forEach(imagePath => {
+                        const imageWrapper = document.createElement('div');
+                        imageWrapper.classList.add('p-4', 'bg-white', 'rounded-lg', 'shadow-md', 'flex', 'items-center', 'justify-center');
+
+                        const img = document.createElement('img');
+                        img.src = 'converted_whatsapp_images/' + imagePath;
+                        img.alt = 'Отзыв ученика';
+                        img.classList.add('w-full', 'h-auto', 'rounded-lg');
+                        img.loading = 'lazy';
+
+                        imageWrapper.appendChild(img);
+                        feedbackContainer.appendChild(imageWrapper);
+                    });
+                } else {
+                    // Сообщение, если отзывы не найдены
+                    feedbackContainer.innerHTML = '<p class="text-center text-gray-500">Отзывы пока не добавлены.</p>';
+                }
+            })
+            .catch(error => {
+                console.error("Ошибка загрузки данных отзывов:", error);
+                feedbackContainer.innerHTML = '<p class="text-center text-red-500">Не удалось загрузить отзывы.</p>';
+            });
+    });
+</script>
+<script>
+    const container = document.getElementById('feedback-container');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    // Функция для прокрутки
+    function scroll(direction) {
+        // Проверяем, существует ли контейнер, прежде чем продолжить
+        if (!container) {
+            console.error('Элемент с ID "feedback-container" не найден.');
+            return;
+        }
+
+        const itemWidth = container.querySelector('div')?.offsetWidth || 0;
+        const gap = 32; // Ширина отступа, которую мы установили с помощью `gap-8` (8px * 4 = 32px)
+
+        if (direction === 'next') {
+            container.scrollLeft += itemWidth + gap;
+        } else {
+            container.scrollLeft -= itemWidth + gap;
+        }
+    }
+
+    // Добавляем слушателей событий для кнопок
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => scroll('next'));
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => scroll('prev'));
+    }
+</script>
+
+
+<script>
+(function() {
+  var ws = new WebSocket('ws://' + window.location.host +
+             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+             'referrer=' + encodeURIComponent(window.location.pathname));
+  ws.onmessage = function (msg) {
+      if (msg.data === 'reload') {
+          window.location.reload();
+      }
+      if (msg.data.startsWith('update-css ')) {
+          var messageId = msg.data.substring(11);
+          var links = document.getElementsByTagName('link');
+          for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              if (link.rel !== 'stylesheet') continue;
+              var clonedLink = link.cloneNode(true);
+              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+              if (newHref !== link.href) {
+                clonedLink.href = newHref;
+              }
+              else {
+                var indexOfQuest = newHref.indexOf('?');
+                if (indexOfQuest >= 0) {
+                  // to support ?foo#hash
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                    newHref.substring(indexOfQuest + 1);
+                }
+                else {
+                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                }
+              }
+              link.replaceWith(clonedLink);
+          }
+      }
+  };
+})();
+</script>
+<script>
+(function() {
+  var ws = new WebSocket('ws://' + window.location.host +
+             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+             'referrer=' + encodeURIComponent(window.location.pathname));
+  ws.onmessage = function (msg) {
+      if (msg.data === 'reload') {
+          window.location.reload();
+      }
+      if (msg.data.startsWith('update-css ')) {
+          var messageId = msg.data.substring(11);
+          var links = document.getElementsByTagName('link');
+          for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              if (link.rel !== 'stylesheet') continue;
+              var clonedLink = link.cloneNode(true);
+              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+              if (newHref !== link.href) {
+                clonedLink.href = newHref;
+              }
+              else {
+                var indexOfQuest = newHref.indexOf('?');
+                if (indexOfQuest >= 0) {
+                  // to support ?foo#hash
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                    newHref.substring(indexOfQuest + 1);
+                }
+                else {
+                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                }
+              }
+              link.replaceWith(clonedLink);
+          }
+      }
+  };
+})();
+</script>
+<script>
+(function() {
+  var ws = new WebSocket('ws://' + window.location.host +
+             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+             'referrer=' + encodeURIComponent(window.location.pathname));
+  ws.onmessage = function (msg) {
+      if (msg.data === 'reload') {
+          window.location.reload();
+      }
+      if (msg.data.startsWith('update-css ')) {
+          var messageId = msg.data.substring(11);
+          var links = document.getElementsByTagName('link');
+          for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              if (link.rel !== 'stylesheet') continue;
+              var clonedLink = link.cloneNode(true);
+              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+              if (newHref !== link.href) {
+                clonedLink.href = newHref;
+              }
+              else {
+                var indexOfQuest = newHref.indexOf('?');
+                if (indexOfQuest >= 0) {
+                  // to support ?foo#hash
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                    newHref.substring(indexOfQuest + 1);
+                }
+                else {
+                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                }
+              }
+              link.replaceWith(clonedLink);
+          }
+      }
+  };
+})();
+</script>
+<script>
+(function() {
+  var ws = new WebSocket('ws://' + window.location.host +
+             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+             'referrer=' + encodeURIComponent(window.location.pathname));
+  ws.onmessage = function (msg) {
+      if (msg.data === 'reload') {
+          window.location.reload();
+      }
+      if (msg.data.startsWith('update-css ')) {
+          var messageId = msg.data.substring(11);
+          var links = document.getElementsByTagName('link');
+          for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              if (link.rel !== 'stylesheet') continue;
+              var clonedLink = link.cloneNode(true);
+              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+              if (newHref !== link.href) {
+                clonedLink.href = newHref;
+              }
+              else {
+                var indexOfQuest = newHref.indexOf('?');
+                if (indexOfQuest >= 0) {
+                  // to support ?foo#hash
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                    newHref.substring(indexOfQuest + 1);
+                }
+                else {
+                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                }
+              }
+              link.replaceWith(clonedLink);
+          }
+      }
+  };
+})();
+</script>
+<script>
+(function() {
+  var ws = new WebSocket('ws://' + window.location.host +
+             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+             'referrer=' + encodeURIComponent(window.location.pathname));
+  ws.onmessage = function (msg) {
+      if (msg.data === 'reload') {
+          window.location.reload();
+      }
+      if (msg.data.startsWith('update-css ')) {
+          var messageId = msg.data.substring(11);
+          var links = document.getElementsByTagName('link');
+          for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              if (link.rel !== 'stylesheet') continue;
+              var clonedLink = link.cloneNode(true);
+              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+              if (newHref !== link.href) {
+                clonedLink.href = newHref;
+              }
+              else {
+                var indexOfQuest = newHref.indexOf('?');
+                if (indexOfQuest >= 0) {
+                  // to support ?foo#hash
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                    newHref.substring(indexOfQuest + 1);
+                }
+                else {
+                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                }
+              }
+              link.replaceWith(clonedLink);
+          }
+      }
+  };
+})();
+</script>
+<script>
+(function() {
+  var ws = new WebSocket('ws://' + window.location.host +
+             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+             'referrer=' + encodeURIComponent(window.location.pathname));
+  ws.onmessage = function (msg) {
+      if (msg.data === 'reload') {
+          window.location.reload();
+      }
+      if (msg.data.startsWith('update-css ')) {
+          var messageId = msg.data.substring(11);
+          var links = document.getElementsByTagName('link');
+          for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              if (link.rel !== 'stylesheet') continue;
+              var clonedLink = link.cloneNode(true);
+              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+              if (newHref !== link.href) {
+                clonedLink.href = newHref;
+              }
+              else {
+                var indexOfQuest = newHref.indexOf('?');
+                if (indexOfQuest >= 0) {
+                  // to support ?foo#hash
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                    newHref.substring(indexOfQuest + 1);
+                }
+                else {
+                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                }
+              }
+              link.replaceWith(clonedLink);
+          }
+      }
+  };
+})();
+</script></body>
+</html>

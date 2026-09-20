@@ -1,0 +1,84 @@
+[
+    {
+        "category": "ebru",
+        "images": [
+            "ebru/abru.webp"
+        ]
+    },
+    {
+        "category": "MK",
+        "images": [
+            "MK/mk-dvoretckaya1.webp",
+            "MK/mk-dvoretckaya6.webp",
+            "MK/mk-dvoretckaya4.webp",
+            "MK/mk-dvoretckaya5.webp",
+            "MK/mk-dvoretckaya2.webp",
+            "MK/mk-dvoretckaya3.webp"
+        ]
+    },
+    {
+        "category": "pesochnye_i_svetovye_shou",
+        "images": [
+            "pesochnye_i_svetovye_shou/show-dvoretckaya2.webp",
+            "pesochnye_i_svetovye_shou/show-dvoretckaya3.webp",
+            "pesochnye_i_svetovye_shou/show-dvoretckaya4.webp",
+            "pesochnye_i_svetovye_shou/show-dvoretckaya5.webp",
+            "pesochnye_i_svetovye_shou/show-dvoretckaya6.webp",
+            "pesochnye_i_svetovye_shou/show-dvoretckaya7.webp",
+            "pesochnye_i_svetovye_shou/show-dvoretckaya1.webp"
+        ]
+    },
+    {
+        "category": "studija_peska",
+        "images": [
+            "studija_peska/studio-peska-dvoretckaya5.webp",
+            "studija_peska/studio-peska-dvoretckaya4.webp",
+            "studija_peska/studio-peska-dvoretckaya3.webp",
+            "studija_peska/studio-peska-dvoretckaya2.webp",
+            "studija_peska/studio-peska-dvoretckaya1.webp"
+        ]
+    },
+    {
+        "category": "zhivopis",
+        "images": [
+            "zhivopis/zhivopis-dvoretckaya2.webp",
+            "zhivopis/zhivopis-dvoretckaya3.webp",
+            "zhivopis/zhivopis-dvoretckaya4.webp",
+            "zhivopis/zhivopis-dvoretckaya5.webp",
+            "zhivopis/zhivopis-dvoretckaya6.webp",
+            "zhivopis/zhivopis-dvoretckaya1.webp"
+        ]
+    },
+    {
+        "category": "otzyvy",
+        "images": [
+            "otzyvy/Snimok_ekrana_2025-09-20_v_094942.webp",
+            "otzyvy/otzivy-dvoretckaya3.webp",
+            "otzyvy/otzivy-dvoretckaya2.webp",
+            "otzyvy/otzivy-dvoretckaya5.webp",
+            "otzyvy/otzivy-dvoretckaya4.webp",
+            "otzyvy/otzivy-dvoretckaya1.webp"
+        ]
+    },
+    {
+        "category": "Dni_rozhdenija",
+        "images": [
+            "Dni_rozhdenija/dni-rozhdeniya-dvoretckaya2.webp",
+            "Dni_rozhdenija/dni-rozhdeniya-dvoretckaya3.webp",
+            "Dni_rozhdenija/dni-rozhdeniya-dvoretckaya4.webp",
+            "Dni_rozhdenija/dni-rozhdeniya-dvoretckaya5.webp",
+            "Dni_rozhdenija/dni-rozhdeniya-dvoretckaya6.webp",
+            "Dni_rozhdenija/dni-rozhdeniya-dvoretckaya7.webp",
+            "Dni_rozhdenija/dni-rozhdeniya-dvoretckaya1.webp"
+        ]
+    },
+    {
+        "category": "art_proekty",
+        "images": [
+            "art_proekty/art-project-dvoretckaya4.webp",
+            "art_proekty/art-project-dvoretckaya2.webp",
+            "art_proekty/art-project-dvoretckaya3.webp",
+            "art_proekty/art-project-dvoretckaya1.webp"
+        ]
+    }
+]
