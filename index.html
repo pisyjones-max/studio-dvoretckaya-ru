@@ -442,6 +442,13 @@
           .faq-item summary { list-style: none; }
           .faq-item summary::-webkit-details-marker { display: none; }
           .faq-item[open] .faq-icon { transform: rotate(45deg); }
+          .contact-fab { width: 3.5rem; height: 3.5rem; }
+          @media (max-width: 640px) {
+              .yandex-badge-box { overflow: hidden; max-width: 100%; }
+              .contact-fab-wrap { right: 1rem; bottom: 1rem; }
+              .contact-fab { width: 2.75rem; height: 2.75rem; padding: 0.625rem; }
+              .contact-fab i, .contact-fab span { font-size: 1.1rem; }
+          }
           .image-container img {
               position: absolute;
               top: 0;
@@ -1347,7 +1354,7 @@
                 <p class="text-sm mb-2"><i class="bi bi-geo-alt-fill mr-2"></i>г. Раменское, ул. Северное шоссе, д.4, офис 22</p>
                 <p class="text-sm mb-2"><i class="bi bi-clock-fill mr-2"></i>Пн-Вс: 10:00 - 20:00</p>
                 <p class="text-sm mb-4"><i class="bi bi-phone-fill mr-2"></i><a class="hover:underline" href="tel:+79264281144">+7 (926) 428-11-44</a></p>
-                <div style="width:220px;height:135px;overflow:visible;" class="mx-auto md:mx-0">
+                <div style="width:220px;height:135px;overflow:visible;" class="mx-auto md:mx-0 yandex-badge-box">
                     <iframe src="https://yandex.ru/sprav/widget/rating-badge/1377858354?type=award" width="220" height="80" frameborder="0" style="transform:scale(1.6);transform-origin:top left;border:0;"></iframe>
                 </div>
             </div>
@@ -1615,14 +1622,14 @@
         });
     });
 </script>
-<div class="fixed bottom-8 right-8 z-50 flex flex-col space-y-4">
-    <a href="https://t.me/+79264281144" class="bg-[#26A5E4] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" target="_blank" aria-label="Связаться с нами по Telegram" style="width:3.5rem;height:3.5rem;">
+<div class="fixed bottom-8 right-8 z-50 flex flex-col space-y-4 contact-fab-wrap">
+    <a href="https://t.me/+79264281144" class="contact-fab bg-[#26A5E4] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" target="_blank" aria-label="Связаться с нами по Telegram">
         <i class="bi bi-telegram text-2xl"></i>
     </a>
-    <a href="https://max.ru/join/sXg6YJ9yS0nZbIOu2Z-7NwmbvnI0BqwzlVoCQhJzgWQ" class="bg-[#8B1E3F] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" target="_blank" aria-label="Связаться с нами в MAX" style="width:3.5rem;height:3.5rem;">
+    <a href="https://max.ru/join/sXg6YJ9yS0nZbIOu2Z-7NwmbvnI0BqwzlVoCQhJzgWQ" class="contact-fab bg-[#8B1E3F] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" target="_blank" aria-label="Связаться с нами в MAX">
         <span class="font-extrabold text-sm leading-none">MAX</span>
     </a>
-    <a href="https://wa.me/+79264281144" class="bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" target="_blank" aria-label="Связаться с нами по WhatsApp" style="width:3.5rem;height:3.5rem;">
+    <a href="https://wa.me/+79264281144" class="contact-fab bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center" target="_blank" aria-label="Связаться с нами по WhatsApp">
         <i class="bi bi-whatsapp text-2xl"></i>
     </a>
 </div>
