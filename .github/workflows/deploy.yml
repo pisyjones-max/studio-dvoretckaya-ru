@@ -1,0 +1,59 @@
+# Автоматическая выгрузка сайта на хостинг reg.ru при каждом push в main.
+#
+# ПОКА в настройках репозитория не создана переменная DEPLOY_LIVE = true,
+# workflow работает в режиме проверки (dry-run): показывает в логе, что БЫЛО БЫ
+# загружено, но на сайте ничего не меняет.
+#
+# Что нужно в GitHub: Settings → Secrets and variables → Actions
+#   Secrets:   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+#   Variables: DEPLOY_LIVE (= true, когда проверка прошла)
+#              FTP_DIR (нужна, только если FTP-пользователь не ограничен папкой
+#                       сайта; тогда значение: www/studio.dvoretckaya.ru/ )
+
+name: Deploy to reg.ru
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v4
+
+      - name: Upload changed files by FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps            # если запуск падает на подключении — замените на ftp
+          server-dir: ${{ vars.FTP_DIR || './' }}
+          dry-run: ${{ vars.DEPLOY_LIVE != 'true' }}
+          # Эти файлы живут только на хостинге и не трогаются при выгрузке:
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            .gitignore
+            **/*.md
+            **/.DS_Store
+            config.php
+            config.example.php
+            data/**
+            leads.json
+            subscribers.json
+            rate_limit.json
+            telegram_errors.log
+            telegram_relay_config.php
+            seo-domain-css-fix.patch
