@@ -9,4 +9,3 @@ Disallow: /privacy.html
 Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&gclid&from&_openstat
 
 Sitemap: https://studio.dvoretckaya.ru/sitemap.xml
-Sitemap: https://studio.dvoretckaya.ru/blog/sitemap.php
