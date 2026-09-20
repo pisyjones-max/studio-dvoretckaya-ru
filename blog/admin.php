@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && hash_equals($csrf, (string)($_POST[
 $e = isset($_GET['e']) ? post_get((string)$_GET['e']) : null;
 $f = $e ?: ['title' => '', 'text' => '', 'alt' => '', 'slug' => '', 'img' => ''];
 if ($err) $f = ['title' => $_POST['title'] ?? '', 'text' => $_POST['text'] ?? '', 'alt' => $_POST['alt'] ?? '', 'desc' => $_POST['desc'] ?? '', 'slug' => $_POST['edit'] ?? '', 'img' => ''];
-$b = '<p><a href="/blog/">Блог</a> · <a href="?out=1">Выйти</a></p><h2>' . ($f['slug'] ? 'Редактировать запись' : 'Новая запись') . '</h2>';
+$b = '<p><a href="/blog/">Блог</a> · <a href="import.php">Массовая загрузка (JSON)</a> · <a href="?out=1">Выйти</a></p><h2>' . ($f['slug'] ? 'Редактировать запись' : 'Новая запись') . '</h2>';
 if ($err) $b .= '<p class="e">' . h($err) . '</p>';
 if (isset($_GET['ok'])) $b .= '<p class="o">' . ($_GET['ok'] === '2' ? 'Удалено.' : 'Опубликовано.') . '</p>';
 $b .= '<form method="post" enctype="multipart/form-data"><input type="hidden" name="csrf" value="' . $csrf . '"><input type="hidden" name="edit" value="' . h($f['slug']) . '">' .

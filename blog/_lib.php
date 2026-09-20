@@ -47,7 +47,7 @@ function save_photo($tmp) {
     $n = bin2hex(random_bytes(6));
     if (!function_exists('imagecreatefromstring')) {
         $x = [IMAGETYPE_JPEG => 'jpg', IMAGETYPE_PNG => 'png', IMAGETYPE_WEBP => 'webp'][$i[2]];
-        return move_uploaded_file($tmp, "$dir/$n.$x") ? "$n.$x" : '';
+        return (is_uploaded_file($tmp) ? move_uploaded_file($tmp, "$dir/$n.$x") : copy($tmp, "$dir/$n.$x")) ? "$n.$x" : '';
     }
     $im = @imagecreatefromstring(file_get_contents($tmp));
     if (!$im) return '';
@@ -110,3 +110,9 @@ function auth_ok() {
 }
 function auth_set() { $t = (string)time(); setcookie('blog_auth', $t . '.' . hash_hmac('sha256', $t, auth_key()), ['expires' => time() + 86400 * 180, 'path' => '/blog/', 'httponly' => true, 'samesite' => 'Lax', 'secure' => !empty($_SERVER['HTTPS'])]); }
 function auth_clear() { setcookie('blog_auth', '', ['expires' => time() - 3600, 'path' => '/blog/']); }
+
+function post_imgs($p) {
+    $r = !empty($p['img']) ? [$p['img']] : [];
+    if (preg_match_all('~\(([a-f0-9]{12}\.[a-z]+)\)~', $p['text'], $m)) $r = array_merge($r, $m[1]);
+    return array_values(array_unique($r));
+}
