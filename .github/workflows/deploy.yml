@@ -51,6 +51,7 @@ jobs:
             config.php
             config.example.php
             data/**
+            blog/uploads/**
             leads.json
             subscribers.json
             rate_limit.json
