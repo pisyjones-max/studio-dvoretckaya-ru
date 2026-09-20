@@ -13,12 +13,23 @@ function slugify($t) {
     $s = trim(substr(trim(preg_replace('~[^a-z0-9]+~', '-', $s), '-'), 0, 50), '-');
     return $s !== '' ? $s : 'post';
 }
+function inline_md($t) {
+    $e = h($t);
+    $e = preg_replace('~\*\*(.+?)\*\*~us', '<strong>$1</strong>', $e);
+    $e = preg_replace('~\*(.+?)\*~us', '<em>$1</em>', $e);
+    $e = preg_replace('~\[([^\]]+)\]\((https?://[^)\s]+)\)~u', '<a href="$2" rel="nofollow noopener" target="_blank">$1</a>', $e);
+    return preg_replace('~(?<!["=>])(https?://[^\s<]+)~u', '<a href="$1" rel="nofollow noopener" target="_blank">$1</a>', $e);
+}
 function text_html($t) {
     $o = '';
     foreach (preg_split('~\R{2,}~', trim($t)) as $para) {
-        $e = nl2br(h(trim($para)), false);
-        $e = preg_replace('~(https?://[^\s<]+)~u', '<a href="$1" rel="nofollow noopener" target="_blank">$1</a>', $e);
-        $o .= "<p>$e</p>\n";
+        $para = trim($para);
+        $lines = preg_split('~\R~', $para);
+        if (strpos($para, '## ') === 0) { $o .= '<h2>' . inline_md(substr($para, 3)) . "</h2>\n"; continue; }
+        if (count(array_filter($lines, function ($l) { return strpos($l, '- ') !== 0; })) === 0) {
+            $o .= '<ul>' . implode('', array_map(function ($l) { return '<li>' . inline_md(substr($l, 2)) . '</li>'; }, $lines)) . "</ul>\n"; continue;
+        }
+        $o .= '<p>' . nl2br(inline_md($para), false) . "</p>\n";
     }
     return $o;
 }

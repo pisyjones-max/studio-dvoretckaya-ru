@@ -50,11 +50,11 @@ $b = '<p><a href="/blog/">Блог</a> · <a href="?out=1">Выйти</a></p><h2
 if ($err) $b .= '<p class="e">' . h($err) . '</p>';
 if (isset($_GET['ok'])) $b .= '<p class="o">' . ($_GET['ok'] === '2' ? 'Удалено.' : 'Опубликовано.') . '</p>';
 $b .= '<form method="post" enctype="multipart/form-data"><input type="hidden" name="csrf" value="' . $csrf . '"><input type="hidden" name="edit" value="' . h($f['slug']) . '">' .
-    'Заголовок<input name="title" value="' . h($f['title']) . '" required>Текст (абзацы — через пустую строку)<textarea name="text" rows="14" required>' . h($f['text']) . '</textarea>' .
+    'Заголовок<input name="title" value="' . h($f['title']) . '" required>Текст (абзацы — через пустую строку)<div><button type="button" class="x" data-a="**" data-b="**"><b>Ж</b></button> <button type="button" class="x" data-a="*" data-b="*"><i>К</i></button> <button type="button" class="x" data-a="## " data-b="">Заголовок</button> <button type="button" class="x" data-a="- " data-b="">Список</button> <button type="button" class="x" data-l="1">Ссылка</button></div><textarea id="t" name="text" rows="14" required>' . h($f['text']) . '</textarea>' .
     'Фото' . ($f['img'] ? ' (уже есть, можно заменить)' : '') . '<input type="file" name="photo" accept="image/*">Описание фото<input name="alt" value="' . h($f['alt']) . '">' .
     '<button>' . ($f['slug'] ? 'Сохранить' : 'Опубликовать') . '</button></form><h2>Записи</h2><ul>';
 foreach (posts() as $p) {
     $b .= '<li>' . date('d.m.Y', $p['ts']) . ' — <a href="/blog/' . h($p['slug']) . '">' . h($p['title']) . '</a> <a href="?e=' . h($p['slug']) . '">изменить</a> ' .
         '<form class="i" method="post" onsubmit="return confirm(\'Удалить?\')"><input type="hidden" name="csrf" value="' . $csrf . '"><input type="hidden" name="del" value="' . h($p['slug']) . '"><button class="x">удалить</button></form></li>';
 }
-$out($b . '</ul>');
+$out($b . '</ul><script>function w(a,b){var t=document.getElementById("t"),s=t.selectionStart,e=t.selectionEnd,v=t.value;t.value=v.slice(0,s)+a+v.slice(s,e)+b+v.slice(e);t.focus();t.selectionStart=s+a.length;t.selectionEnd=e+a.length}document.querySelectorAll("[data-a],[data-l]").forEach(function(b){b.onclick=function(){if(b.dataset.l){var u=prompt("Адрес ссылки (https://...)");if(u)w("[","]("+u+")")}else w(b.dataset.a,b.dataset.b)}})</script>');
