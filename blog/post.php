@@ -5,6 +5,7 @@ $all = posts(); $k = null;
 foreach ($all as $i => $x) if ($x['slug'] === $s) $k = $i;
 if ($k === null) { http_response_code(404); echo layout('Не найдено', '', SITE . '/blog/', '<h1>Запись не найдена</h1><p><a href="/blog/">← Все записи</a></p>'); exit; }
 $p = $all[$k];
+$GLOBALS['edit_slug'] = $p['slug'];
 $url = SITE . '/blog/' . $p['slug'];
 $desc = !empty($p['desc']) ? $p['desc'] : cut(plain($p['text']), 160);
 $upd = $p['upd'] ?? $p['ts'];
