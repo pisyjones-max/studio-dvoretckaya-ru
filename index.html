@@ -439,6 +439,9 @@
               padding-top: 100%;
               overflow: hidden;
           }
+          .faq-item summary { list-style: none; }
+          .faq-item summary::-webkit-details-marker { display: none; }
+          .faq-item[open] .faq-icon { transform: rotate(45deg); }
           .image-container img {
               position: absolute;
               top: 0;
@@ -1019,10 +1022,10 @@
             <p class="text-lg max-w-2xl mx-auto mb-10">
                 Мы работаем в Раменском с 2015 года. Вот что пишут родители наших учеников и заказчики шоу.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 text-left">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 text-left">
                 <article class="bg-white rounded-2xl shadow-md p-6 text-left flex flex-col" itemprop="review" itemscope itemtype="https://schema.org/Review">
                     <div class="text-[#C2828F] text-lg mb-3" aria-label="Оценка 5 из 5">★★★★★</div>
-                    <p class="text-gray-700 mb-4 flex-grow" itemprop="reviewBody">Дочка ходит на живопись второй год. Группы маленькие, педагог успевает объяснить каждому. С каждого занятия приносим домой готовую работу — для ребёнка это огромная мотивация.</p>
+                    <p class="text-gray-700 mb-4" style="flex-grow:1" itemprop="reviewBody">Дочка ходит на живопись второй год. Группы маленькие, педагог успевает объяснить каждому. С каждого занятия приносим домой готовую работу — для ребёнка это огромная мотивация.</p>
                     <footer class="text-sm text-gray-500">
                         <span class="font-semibold text-gray-800" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Екатерина</span></span> — мама ученицы, живопись
                     </footer>
@@ -1030,7 +1033,7 @@
                 </article>
                 <article class="bg-white rounded-2xl shadow-md p-6 text-left flex flex-col" itemprop="review" itemscope itemtype="https://schema.org/Review">
                     <div class="text-[#C2828F] text-lg mb-3" aria-label="Оценка 5 из 5">★★★★★</div>
-                    <p class="text-gray-700 mb-4 flex-grow" itemprop="reviewBody">Заказывали песочное шоу на юбилей мамы. Гости смотрели номер молча, а потом полчаса его обсуждали. Организация без единой накладки, приехали заранее и всё настроили.</p>
+                    <p class="text-gray-700 mb-4" style="flex-grow:1" itemprop="reviewBody">Заказывали песочное шоу на юбилей мамы. Гости смотрели номер молча, а потом полчаса его обсуждали. Организация без единой накладки, приехали заранее и всё настроили.</p>
                     <footer class="text-sm text-gray-500">
                         <span class="font-semibold text-gray-800" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Марина</span></span> — песочное шоу на юбилей
                     </footer>
@@ -1038,7 +1041,7 @@
                 </article>
                 <article class="bg-white rounded-2xl shadow-md p-6 text-left flex flex-col" itemprop="review" itemscope itemtype="https://schema.org/Review">
                     <div class="text-[#C2828F] text-lg mb-3" aria-label="Оценка 5 из 5">★★★★★</div>
-                    <p class="text-gray-700 mb-4 flex-grow" itemprop="reviewBody">Отмечали день рождения сына в студии. Двенадцать детей были заняты два часа, родители спокойно пили чай. Каждый ребёнок увёз домой свою картину вместо очередной пластиковой игрушки.</p>
+                    <p class="text-gray-700 mb-4" style="flex-grow:1" itemprop="reviewBody">Отмечали день рождения сына в студии. Двенадцать детей были заняты два часа, родители спокойно пили чай. Каждый ребёнок увёз домой свою картину вместо очередной пластиковой игрушки.</p>
                     <footer class="text-sm text-gray-500">
                         <span class="font-semibold text-gray-800" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Анна</span></span> — детский день рождения
                     </footer>
@@ -1046,7 +1049,7 @@
                 </article>
                 <article class="bg-white rounded-2xl shadow-md p-6 text-left flex flex-col" itemprop="review" itemscope itemtype="https://schema.org/Review">
                     <div class="text-[#C2828F] text-lg mb-3" aria-label="Оценка 5 из 5">★★★★★</div>
-                    <p class="text-gray-700 mb-4 flex-grow" itemprop="reviewBody">Пришла на эбру просто попробовать — осталась на абонемент. Рисование на воде неожиданно хорошо снимает напряжение после рабочего дня, час пролетает незаметно.</p>
+                    <p class="text-gray-700 mb-4" style="flex-grow:1" itemprop="reviewBody">Пришла на эбру просто попробовать — осталась на абонемент. Рисование на воде неожиданно хорошо снимает напряжение после рабочего дня, час пролетает незаметно.</p>
                     <footer class="text-sm text-gray-500">
                         <span class="font-semibold text-gray-800" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Ольга</span></span> — эбру, взрослая группа
                     </footer>
@@ -1054,7 +1057,7 @@
                 </article>
                 <article class="bg-white rounded-2xl shadow-md p-6 text-left flex flex-col" itemprop="review" itemscope itemtype="https://schema.org/Review">
                     <div class="text-[#C2828F] text-lg mb-3" aria-label="Оценка 5 из 5">★★★★★</div>
-                    <p class="text-gray-700 mb-4 flex-grow" itemprop="reviewBody">Водим младшего на песок по рекомендации психолога. Стал заметно спокойнее и сам просится на занятия. Педагог очень внимательная, находит подход.</p>
+                    <p class="text-gray-700 mb-4" style="flex-grow:1" itemprop="reviewBody">Водим младшего на песок по рекомендации психолога. Стал заметно спокойнее и сам просится на занятия. Педагог очень внимательная, находит подход.</p>
                     <footer class="text-sm text-gray-500">
                         <span class="font-semibold text-gray-800" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Ирина</span></span> — студия песка
                     </footer>
@@ -1062,7 +1065,7 @@
                 </article>
                 <article class="bg-white rounded-2xl shadow-md p-6 text-left flex flex-col" itemprop="review" itemscope itemtype="https://schema.org/Review">
                     <div class="text-[#C2828F] text-lg mb-3" aria-label="Оценка 5 из 5">★★★★★</div>
-                    <p class="text-gray-700 mb-4 flex-grow" itemprop="reviewBody">Брали мастер-класс для отдела, 15 человек. Отличный формат для тимбилдинга: все рисуют, никто не сидит в телефоне. Повторим на Новый год.</p>
+                    <p class="text-gray-700 mb-4" style="flex-grow:1" itemprop="reviewBody">Брали мастер-класс для отдела, 15 человек. Отличный формат для тимбилдинга: все рисуют, никто не сидит в телефоне. Повторим на Новый год.</p>
                     <footer class="text-sm text-gray-500">
                         <span class="font-semibold text-gray-800" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Дмитрий</span></span> — корпоративный мастер-класс
                     </footer>
@@ -1131,49 +1134,49 @@
         </div>
     </section>
     <section class="py-20 bg-gray-50" id="faq">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="section-title text-4xl font-bold mb-4 text-center">Частые вопросы</h2>
             <p class="text-lg text-gray-600 mb-10 text-center">Коротко о том, что чаще всего спрашивают перед первым занятием.</p>
             <div class="space-y-4 text-left">
-                <details class="bg-white rounded-2xl shadow-md p-6 group">
-                    <summary class="font-semibold text-lg cursor-pointer list-none flex justify-between items-center">
+                <details class="faq-item bg-white rounded-2xl shadow-md p-6">
+                    <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">
                         <span>С какого возраста вы берёте детей?</span>
-                        <span class="text-[#C2828F] text-2xl ml-4 group-open:rotate-45 transition-transform">+</span>
+                        <span class="faq-icon text-[#C2828F] text-2xl transition-transform" style="margin-left:1rem">+</span>
                     </summary>
                     <p class="mt-4 text-gray-700">На песочную анимацию и эбру берём с 4 лет, на живопись — с 5–6 лет. Для взрослых ограничений нет: у нас занимаются и те, кто никогда не держал кисть в руках.</p>
                 </details>
-                <details class="bg-white rounded-2xl shadow-md p-6 group">
-                    <summary class="font-semibold text-lg cursor-pointer list-none flex justify-between items-center">
+                <details class="faq-item bg-white rounded-2xl shadow-md p-6">
+                    <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">
                         <span>Нужно ли покупать материалы?</span>
-                        <span class="text-[#C2828F] text-2xl ml-4 group-open:rotate-45 transition-transform">+</span>
+                        <span class="faq-icon text-[#C2828F] text-2xl transition-transform" style="margin-left:1rem">+</span>
                     </summary>
                     <p class="mt-4 text-gray-700">Нет. Краски, холсты, бумага, песок и всё остальное входит в стоимость занятия. Приходить нужно только с собой и в одежде, которую не жалко.</p>
                 </details>
-                <details class="bg-white rounded-2xl shadow-md p-6 group">
-                    <summary class="font-semibold text-lg cursor-pointer list-none flex justify-between items-center">
+                <details class="faq-item bg-white rounded-2xl shadow-md p-6">
+                    <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">
                         <span>Сколько человек в группе?</span>
-                        <span class="text-[#C2828F] text-2xl ml-4 group-open:rotate-45 transition-transform">+</span>
+                        <span class="faq-icon text-[#C2828F] text-2xl transition-transform" style="margin-left:1rem">+</span>
                     </summary>
                     <p class="mt-4 text-gray-700">До 6 человек. Это позволяет преподавателю подойти к каждому ученику на каждом занятии, а не вести урок «на аудиторию».</p>
                 </details>
-                <details class="bg-white rounded-2xl shadow-md p-6 group">
-                    <summary class="font-semibold text-lg cursor-pointer list-none flex justify-between items-center">
+                <details class="faq-item bg-white rounded-2xl shadow-md p-6">
+                    <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">
                         <span>Можно прийти на одно пробное занятие?</span>
-                        <span class="text-[#C2828F] text-2xl ml-4 group-open:rotate-45 transition-transform">+</span>
+                        <span class="faq-icon text-[#C2828F] text-2xl transition-transform" style="margin-left:1rem">+</span>
                     </summary>
                     <p class="mt-4 text-gray-700">Да. Можно взять разовое занятие или мастер-класс, а абонемент оформить позже, если формат подойдёт.</p>
                 </details>
-                <details class="bg-white rounded-2xl shadow-md p-6 group">
-                    <summary class="font-semibold text-lg cursor-pointer list-none flex justify-between items-center">
+                <details class="faq-item bg-white rounded-2xl shadow-md p-6">
+                    <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">
                         <span>Проводите ли вы детские дни рождения?</span>
-                        <span class="text-[#C2828F] text-2xl ml-4 group-open:rotate-45 transition-transform">+</span>
+                        <span class="faq-icon text-[#C2828F] text-2xl transition-transform" style="margin-left:1rem">+</span>
                     </summary>
                     <p class="mt-4 text-gray-700">Да. Творческая программа на 1,5–2 часа в студии, все материалы включены, каждый гость забирает домой свою работу. Отдельно можно добавить песочное или световое шоу.</p>
                 </details>
-                <details class="bg-white rounded-2xl shadow-md p-6 group">
-                    <summary class="font-semibold text-lg cursor-pointer list-none flex justify-between items-center">
+                <details class="faq-item bg-white rounded-2xl shadow-md p-6">
+                    <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">
                         <span>Где вы находитесь и откуда к вам ездят?</span>
-                        <span class="text-[#C2828F] text-2xl ml-4 group-open:rotate-45 transition-transform">+</span>
+                        <span class="faq-icon text-[#C2828F] text-2xl transition-transform" style="margin-left:1rem">+</span>
                     </summary>
                     <p class="mt-4 text-gray-700">Раменское, Северное шоссе, д. 4, офис 22. К нам приезжают из Раменского, Жуковского, Быково, Бронниц и Люберец.</p>
                 </details>
