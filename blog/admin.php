@@ -13,7 +13,7 @@ if (isset($_POST['pw'])) {
 if (isset($_GET['out'])) { auth_clear(); session_destroy(); header('Location: admin.php'); exit; }
 if (empty($_SESSION['ok']) && auth_ok()) { $_SESSION['ok'] = 1; $_SESSION['csrf'] = bin2hex(random_bytes(16)); auth_set(); }
 if (empty($_SESSION['ok'])) { $out('<h2>Вход</h2>' . (!empty($bad) ? '<p class="e">Неверный пароль</p>' : '') . '<form method="post"><input type="password" name="pw" placeholder="Пароль" autofocus><button>Войти</button></form>'); exit; }
-$csrf = $_SESSION['csrf'];
+$csrf = hash_hmac('sha256', 'csrf', auth_key()); // стабильный: не ломается, если сессия истекла при открытой форме
 if (isset($_GET['up'])) { header('Content-Type: application/json'); $n = ($_SERVER['REQUEST_METHOD'] === 'POST' && hash_equals($csrf, (string)($_POST['csrf'] ?? '')) && isset($_FILES['f']) && $_FILES['f']['error'] === 0) ? save_photo($_FILES['f']['tmp_name']) : ''; echo json_encode(['n' => $n]); exit; }
 $err = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && hash_equals($csrf, (string)($_POST['csrf'] ?? ''))) {
