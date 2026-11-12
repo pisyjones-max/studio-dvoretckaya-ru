@@ -109,6 +109,11 @@ foreach (spam_patterns() as $rx) {
 
 $ua  = substr(isset($_SERVER['HTTP_USER_AGENT']) ? (string)$_SERVER['HTTP_USER_AGENT'] : '', 0, 200);
 $ref = substr(isset($_SERVER['HTTP_REFERER']) ? (string)$_SERVER['HTTP_REFERER'] : '', 0, 120);
+$tk = substr($sig, 0, 16);
+if (!isset($rate['tokens']) || !is_array($rate['tokens'])) $rate['tokens'] = [];
+foreach ($rate['tokens'] as $k => $v) if (!isset($v['t']) || $v['t'] < $now - 43200) unset($rate['tokens'][$k]);
+if ($sig !== '' && isset($rate['tokens'][$tk]['n']) && $rate['tokens'][$tk]['n'] >= 2) $reasons[] = 'токен формы использован повторно';
+if ($origin === '' && (isset($_SERVER['HTTP_REFERER']) ? (string)$_SERVER['HTTP_REFERER'] : '') === '') $reasons[] = 'нет Origin и Referer (не браузер)';
 $alltext = $name . ' ' . $message;
 if ((int)date('G') < 6
     && preg_match('~в[ао]ц[ао]п|в[ао]тс[ао]п|whats\s?app~iu', $alltext)
@@ -120,7 +125,11 @@ $monitor = (cfg('mode', 'block') === 'monitor');
 
 // Считаем попытку в лимитах
 $rate['ip'][$ip_key][] = $now;
-$rate['all'][] = $now;
+if ($sig !== '') {
+    if (!isset($rate['tokens'][$tk])) $rate['tokens'][$tk] = ['t' => $now, 'n' => 0];
+    $rate['tokens'][$tk]['n']++;
+}
+if (!$suspicious) $rate['all'][] = $now;
 
 // ---------- Спам: в карантин ----------
 if ($suspicious && !$monitor) {
