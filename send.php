@@ -107,6 +107,14 @@ foreach (spam_patterns() as $rx) {
     if (@preg_match($rx, $name . "\n" . $message)) { $reasons[] = 'шаблон спама: ' . $rx; break; }
 }
 
+$ua  = substr(isset($_SERVER['HTTP_USER_AGENT']) ? (string)$_SERVER['HTTP_USER_AGENT'] : '', 0, 200);
+$ref = substr(isset($_SERVER['HTTP_REFERER']) ? (string)$_SERVER['HTTP_REFERER'] : '', 0, 120);
+$alltext = $name . ' ' . $message;
+if ((int)date('G') < 6
+    && preg_match('~в[ао]ц[ао]п|в[ао]тс[ао]п|whats\s?app~iu', $alltext)
+    && preg_match('~не\s+(буду\s+на\s+связи|на\s+связи|отвечу|услышу|смогу\s+ответить|возьму)|могу\s+не\s+(услышать|ответить)~iu', $alltext)) {
+    $reasons[] = 'ночная рассылка «напишите в вацап»';
+}
 $suspicious = !empty($reasons);
 $monitor = (cfg('mode', 'block') === 'monitor');
 
@@ -117,7 +125,7 @@ $rate['all'][] = $now;
 // ---------- Спам: в карантин ----------
 if ($suspicious && !$monitor) {
     log_append('spam', [
-        'time' => date('Y-m-d H:i:s'), 'ip' => $ip, 'reasons' => $reasons,
+        'time' => date('Y-m-d H:i:s'), 'ip' => $ip, 'ua' => $ua, 'ref' => $ref, 'age' => isset($age) ? $age : null, 'reasons' => $reasons,
         'name' => $name, 'phone' => $phone_raw, 'message' => $message,
     ]);
     store_write('rate', $rate);
@@ -135,7 +143,7 @@ store_write('rate', $rate);
 
 // ---------- Сохраняем и отправляем ----------
 log_append('leads', [
-    'time' => date('Y-m-d H:i:s'), 'name' => $name, 'phone' => $phone_raw, 'message' => $message,
+    'time' => date('Y-m-d H:i:s'), 'ip' => $ip, 'ua' => $ua, 'ref' => $ref, 'age' => isset($age) ? $age : null, 'name' => $name, 'phone' => $phone_raw, 'message' => $message,
     'suspicious' => $suspicious ? $reasons : null,
 ]);
 

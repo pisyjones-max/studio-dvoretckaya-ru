@@ -1,0 +1,3 @@
+<FilesMatch "^(leads\.json|subscribers\.json|rate_limit\.json|telegram_errors\.log|\.ftp-deploy-sync-state\.json|seo-domain-css-fix\.patch|config\.php|telegram_relay_config\.php)$">
+  Require all denied
+</FilesMatch>
