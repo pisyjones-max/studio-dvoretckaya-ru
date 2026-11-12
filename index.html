@@ -519,6 +519,7 @@
             <img alt="Логотип студии творчества и вдохновения Ольги Дворецкой" class="h-[4.25rem]" src="img/Elegant-Art-Studio-Logo.webp">
         </a>
         <div class="hidden md:flex space-x-8 items-center">
+            <a class="ev-link hover:text-[#C2828F] transition-colors" href="#event" style="font-weight:600">🎄 Афиша</a>
             <a class="hover:text-[#C2828F] transition-colors" href="#about">О студии</a>
             <a class="hover:text-[#C2828F] transition-colors" href="#directions">Направления</a>
             <a class="hover:text-[#C2828F] transition-colors" href="#teachers">Преподаватели</a>
@@ -538,6 +539,7 @@
     </nav>
     <div class="md:hidden absolute w-full bg-white shadow-lg py-4 hidden" id="mobile-menu-dropdown">
         <div class="flex flex-col items-center space-y-4">
+            <a class="ev-link w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#event" style="font-weight:600">🎄 Афиша</a>
             <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#about">О студии</a>
             <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#directions">Направления</a>
             <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#teachers">Преподаватели</a>
@@ -617,6 +619,83 @@
             });
         </script>
     </section>
+
+    
+<style>
+.team-two{max-width:100%}
+@media(min-width:768px){.team-two{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:60rem;margin-left:auto;margin-right:auto}}
+#event{background:var(--bg-light);padding:4rem 1rem;scroll-margin-top:90px}
+.ev-wrap{max-width:68rem;margin:0 auto;display:grid;gap:2rem;align-items:center;background:#fff;border-radius:1.5rem;box-shadow:0 20px 50px rgba(165,106,117,.18);padding:1.5rem;overflow:hidden}
+@media(min-width:768px){.ev-wrap{grid-template-columns:minmax(0,5fr) minmax(0,7fr);padding:2rem;gap:3rem}}
+.ev-poster{display:block;width:100%;max-width:380px;margin:0 auto;border-radius:1rem;box-shadow:0 12px 30px rgba(0,0,0,.25);transition:transform .4s}
+.ev-poster:hover{transform:rotate(-1.5deg) scale(1.02)}
+.ev-tag{display:inline-block;background:var(--primary-color);color:#fff;font-weight:600;font-size:.85rem;letter-spacing:.04em;padding:.35rem .9rem;border-radius:999px}
+.ev-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);line-height:1.1;color:var(--secondary-color);margin:.8rem 0 .2rem}
+.ev-sub{color:#555;font-size:1.05rem;margin-bottom:1rem}
+.ev-list{list-style:none;padding:0;margin:0 0 1.2rem;color:#444}
+.ev-list li{padding:.3rem 0 .3rem 1.6rem;position:relative;line-height:1.45}
+.ev-list li:before{content:"✦";position:absolute;left:0;color:var(--primary-color)}
+.ev-prices{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem}
+.ev-price{border:2px solid var(--primary-color);border-radius:1rem;padding:.8rem 1rem;text-align:center}
+.ev-price b{display:block;font-size:1.6rem;color:var(--secondary-color)}
+.ev-price span{font-size:.85rem;color:#666}
+.ev-price small{display:block;font-size:.75rem;color:#999;margin-top:.15rem}
+.ev-timer{background:var(--bg-light);border-radius:.8rem;padding:.6rem 1rem;font-size:.95rem;color:var(--secondary-color);font-weight:600;margin-bottom:1rem;text-align:center}
+.ev-btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.ev-btns a{flex:1 1 200px;text-align:center;padding:.9rem 1.2rem;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.ev-btns a:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(165,106,117,.35)}
+.ev-b1{background:var(--primary-color);color:#fff}
+.ev-b2{border:2px solid var(--primary-color);color:var(--secondary-color)}
+.ev-note{font-size:.8rem;color:#888;margin-top:.8rem}
+</style>
+<section id="event" aria-label="Афиша">
+  <div class="ev-wrap">
+    <a href="img/afisha.jpg" target="_blank" rel="noopener"><img class="ev-poster" src="img/afisha.jpg" width="380" height="537" loading="lazy" alt="Афиша: песочная сказка «Ёлка, Кот и Новый год», 13 декабря в 17:00, Студия Ольги Дворецкой"></a>
+    <div>
+      <span class="ev-tag">13 ДЕКАБРЯ · 17:00 · ВСЕГО 20 МЕСТ</span>
+      <h2 class="ev-title">Ёлка, Кот и Новый год</h2>
+      <p class="ev-sub">Новогодняя песочная сказка для детей от 3 лет, подростков и взрослых</p>
+      <ul class="ev-list">
+        <li><b>Живое песочное шоу</b> художницы Марины Сагулиной (Строгановская академия, Союз художников России): картины из цветного песка рождаются на большом экране под музыку</li>
+        <li><b>Мастер-класс на световых столах:</b> каждый зритель нарисует свой зимний сюжет</li>
+        <li><b>Профессиональная фотосъёмка:</b> ссылку на снимки пришлём после праздника</li>
+        <li><b>Подарки ручной работы</b> от Студии</li>
+      </ul>
+      <div class="ev-prices">
+        <div class="ev-price"><span>Один билет</span><b id="ev-p1">2 700 ₽</b><small id="ev-o1">с 26 ноября — 3 000 ₽</small></div>
+        <div class="ev-price"><span>Для двоих (взрослый + ребёнок или с другом)</span><b id="ev-p2">4 500 ₽</b><small id="ev-o2">с 26 ноября — 5 000 ₽</small></div>
+      </div>
+      <div class="ev-timer" id="ev-timer"></div>
+      <div class="ev-btns">
+        <a class="ev-b1" href="#contact">Записаться</a>
+        <a class="ev-b2" href="tel:+79264281144">Позвонить +7 926 428-11-44</a>
+      </div>
+      <p class="ev-note">Раменское, Северное шоссе, 4, офис 22. Место закрепляется после полной оплаты билета.</p>
+    </div>
+  </div>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"Ёлка, Кот и Новый год — новогодняя песочная сказка","startDate":"2026-12-13T17:00:00+03:00","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Творческая Студия Ольги Дворецкой","address":{"@type":"PostalAddress","streetAddress":"Северное шоссе, 4, офис 22","addressLocality":"Раменское","addressCountry":"RU"}},"image":["https://studio.dvoretckaya.ru/img/afisha.jpg"],"description":"Песочное шоу, мастер-класс на световых столах, фотосъёмка и подарки. Для детей от 3 лет и взрослых. 20 мест.","performer":{"@type":"Person","name":"Марина Сагулина"},"offers":{"@type":"Offer","price":"2700","priceCurrency":"RUB","availability":"https://schema.org/InStock","url":"https://studio.dvoretckaya.ru/#event","validThrough":"2026-11-25T23:59:59+03:00"}}</script>
+  <script>
+  (function(){
+    var sec=document.getElementById('event'),now=new Date();
+    if(now>new Date('2026-12-13T18:30:00+03:00')){sec.remove();document.querySelectorAll('.ev-link').forEach(function(a){a.remove()});return;}
+    var cut=new Date('2026-11-25T23:59:59+03:00'),t=document.getElementById('ev-timer');
+    function z(n){return n<10?'0'+n:n}
+    function tick(){
+      var d=cut-new Date();
+      if(d<=0){
+        document.getElementById('ev-p1').textContent='3 000 ₽';
+        document.getElementById('ev-p2').textContent='5 000 ₽';
+        document.getElementById('ev-o1').remove();document.getElementById('ev-o2').remove();
+        t.style.display='none';return;
+      }
+      var days=Math.floor(d/864e5),h=Math.floor(d%864e5/36e5),m=Math.floor(d%36e5/6e4);
+      t.textContent='Специальная цена ещё '+days+' дн. '+z(h)+' ч '+z(m)+' мин';
+      setTimeout(tick,30000);
+    }
+    tick();
+  })();
+  </script>
+</section>
 
     <section class="py-20 bg-white" id="about">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -880,7 +959,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 text-left team-two">
                 <div class="bg-white p-8 rounded-lg shadow-md flex flex-col justify-start transform transition-transform duration-300 hover:-translate-y-2">
                     <h3 class="text-2xl font-bold mb-2 text-gray-900">Александр Постовалов</h3>
                     <p class="text-md font-semibold text-gray-600 mb-4">Педагог</p>
@@ -911,21 +990,6 @@
                     </ul>
                 </div>
 
-                <div class="bg-white p-8 rounded-lg shadow-md flex flex-col justify-start transform transition-transform duration-300 hover:-translate-y-2">
-                    <h3 class="text-2xl font-bold mb-2 text-gray-900">Ирада Аббасова</h3>
-                    <p class="text-md font-semibold text-gray-600 mb-4">Педагог</p>
-                    <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><strong>Самый молодой педагог в нашей команде.</strong> Работает с различными
-                            художественными материалами, предпочитая яркий акрил и глубокое масло.
-                        </li>
-                        <li><strong>Образование:</strong> Окончила Художественную школу с отличием. В настоящее время
-                            студентка Гжельского государственного университета (факультет: Живопись).
-                        </li>
-                        <li><strong>Специализация:</strong> Курирует курс "Живопись. Масло" для взрослых и подростков и
-                            проводит мастер-классы.
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
         <div class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4" id="imageModal">
