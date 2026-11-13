@@ -527,6 +527,14 @@ header.scrolled{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filt
 @media(min-width:768px){#fab{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}}
 </style>
+<style>
+#ev-timer{background:linear-gradient(135deg,var(--secondary-color),var(--primary-color));color:#fff;padding:.9rem;border-radius:1rem;text-align:center;margin-bottom:1rem}
+.cd-t{font-size:.85rem;font-weight:600;margin-bottom:.5rem}
+.cd-r{display:flex;justify-content:center;gap:.6rem}
+.cd-b{background:rgba(255,255,255,.2);border-radius:.7rem;padding:.4rem .6rem;min-width:3.6rem}
+.cd-b b{display:block;font-size:1.7rem;font-variant-numeric:tabular-nums;line-height:1.1}
+.cd-b i{font-style:normal;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
+</style>
 </head>
 <body class="font-sans text-gray-800">
 
@@ -697,17 +705,18 @@ header.scrolled{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filt
     if(now>new Date('2026-12-13T18:30:00+03:00')){sec.remove();document.querySelectorAll('.ev-link').forEach(function(a){a.remove()});return;}
     var cut=new Date('2026-11-25T23:59:59+03:00'),t=document.getElementById('ev-timer');
     function z(n){return n<10?'0'+n:n}
+    function box(v,l){return '<div class="cd-b"><b>'+v+'</b><i>'+l+'</i></div>'}
     function tick(){
       var d=cut-new Date();
       if(d<=0){
         document.getElementById('ev-p1').textContent='3 000 ₽';
         document.getElementById('ev-p2').textContent='5 000 ₽';
-        document.getElementById('ev-o1').remove();document.getElementById('ev-o2').remove();
+        var o1=document.getElementById('ev-o1'),o2=document.getElementById('ev-o2');if(o1)o1.remove();if(o2)o2.remove();
         t.style.display='none';return;
       }
-      var days=Math.floor(d/864e5),h=Math.floor(d%864e5/36e5),m=Math.floor(d%36e5/6e4);
-      t.textContent='Специальная цена ещё '+days+' дн. '+z(h)+' ч '+z(m)+' мин';
-      setTimeout(tick,30000);
+      var dd=Math.floor(d/864e5),h=Math.floor(d%864e5/36e5),m=Math.floor(d%36e5/6e4),sc=Math.floor(d%6e4/1e3);
+      t.innerHTML='<div class="cd-t">Специальная цена закончится через</div><div class="cd-r">'+box(dd,'дн')+box(z(h),'час')+box(z(m),'мин')+box(z(sc),'сек')+'</div>';
+      setTimeout(tick,1000);
     }
     tick();
   })();
