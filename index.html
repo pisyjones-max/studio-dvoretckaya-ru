@@ -698,6 +698,23 @@ header.scrolled{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filt
       <p class="ev-note">Раменское, Северное шоссе, 4, офис 22. Место закрепляется после полной оплаты билета.</p>
     </div>
   </div>
+  <div class="ev-clip">
+    <video id="evv" data-src="img/skazka.mp4" poster="img/skazka-poster.jpg" muted loop playsinline preload="none"></video>
+    <button id="evp" type="button" aria-label="Смотреть видео">▶</button>
+  </div>
+  <style>
+  .ev-clip{position:relative;max-width:300px;margin:1.5rem auto 0;border-radius:1rem;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.15);background:#000}
+  .ev-clip video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover}
+  #evp{position:absolute;inset:0;margin:auto;width:64px;height:64px;border:0;border-radius:50%;background:rgba(255,255,255,.85);color:#222;font-size:24px;cursor:pointer}
+  #evp.h{display:none}
+  </style>
+  <script>
+  (function(){var v=document.getElementById('evv'),b=document.getElementById('evp');if(!v||!b)return;
+  function play(){if(!v.src)v.src=v.dataset.src;var p=v.play();if(p&&p.catch)p.catch(function(){b.classList.remove('h')});b.classList.add('h')}
+  b.onclick=play;v.onclick=function(){if(v.paused)play();else{v.pause();b.classList.remove('h')}};
+  if('IntersectionObserver' in window){new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){play()}else if(v.src){v.pause()}})},{threshold:.5}).observe(v)}
+  })();
+  </script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"Ёлка, Кот и Новый год — новогодняя песочная сказка","startDate":"2026-12-13T17:00:00+03:00","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Творческая Студия Ольги Дворецкой","address":{"@type":"PostalAddress","streetAddress":"Северное шоссе, 4, офис 22","addressLocality":"Раменское","addressCountry":"RU"}},"image":["https://studio.dvoretckaya.ru/img/afisha.jpg"],"description":"Песочное шоу, мастер-класс на световых столах, фотосъёмка и подарки. Для детей от 3 лет и взрослых. 20 мест.","performer":{"@type":"Person","name":"Марина Сагулина"},"offers":{"@type":"Offer","price":"2700","priceCurrency":"RUB","availability":"https://schema.org/InStock","url":"https://studio.dvoretckaya.ru/#event","validThrough":"2026-11-25T23:59:59+03:00"}}</script>
   <script>
   (function(){
