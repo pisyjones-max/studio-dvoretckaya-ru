@@ -545,6 +545,7 @@ header.scrolled{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filt
             <img alt="Логотип студии творчества и вдохновения Ольги Дворецкой" class="h-[4.25rem]" src="img/Elegant-Art-Studio-Logo.webp">
         </a>
         <div class="hidden md:flex space-x-8 items-center">
+            <a class="top-desk hover:text-[#C2828F] transition-colors" href="#" data-top>Главная</a>
             <a class="ev-link hover:text-[#C2828F] transition-colors" href="#event" style="font-weight:600">🎄 Афиша</a>
             <a class="hover:text-[#C2828F] transition-colors" href="#about">О студии</a>
             <a class="hover:text-[#C2828F] transition-colors" href="#directions">Направления</a>
@@ -566,6 +567,7 @@ header.scrolled{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filt
     </nav>
     <div class="md:hidden absolute w-full bg-white shadow-lg py-4 hidden" id="mobile-menu-dropdown">
         <div class="flex flex-col items-center space-y-4">
+            <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#" data-top>Главная</a>
             <a class="ev-link w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#event" style="font-weight:600">🎄 Афиша</a>
             <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#about">О студии</a>
             <a class="w-full text-center hover:bg-gray-100 py-2 transition-colors" href="#directions">Направления</a>
@@ -1970,5 +1972,27 @@ document.querySelectorAll('main > section:not(#hero):not(#event), main > div').f
 })();
 </script>
 <script src="https://hub.platforma-msk.ru/hub.js" data-key="pk_f6945eb315566cc6e5b38b13" async></script>
+<style id="hdr-tune">
+header{transition:transform .28s ease,background .3s,box-shadow .3s}
+header img{transition:height .25s ease}
+header.hdr-hide{transform:translateY(-100%)}
+header.hdr-compact{padding-top:.15rem!important;padding-bottom:.15rem!important}
+header.hdr-compact img{height:2.75rem!important}
+@media(max-width:1023px){.top-desk{display:none!important}}
+</style>
+<script id="hdr-tune-js">
+(function(){
+var h=document.querySelector('header');if(!h)return;
+var dd=document.getElementById('mobile-menu-dropdown'),last=window.scrollY,tk=false;
+function menuOpen(){return dd&&!dd.classList.contains('hidden')}
+function upd(){var y=window.scrollY,d=y-last;
+if(y<80){h.classList.remove('hdr-hide','hdr-compact')}
+else{h.classList.add('hdr-compact');
+if(d>8&&!menuOpen())h.classList.add('hdr-hide');else if(d<-8)h.classList.remove('hdr-hide')}
+last=y;tk=false}
+addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});
+document.querySelectorAll('header nav>a[href="#"],[data-top]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();if(dd)dd.classList.add('hidden');window.scrollTo({top:0,behavior:'smooth'})})});
+})();
+</script>
 </body>
 </html>
