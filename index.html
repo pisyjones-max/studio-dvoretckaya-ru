@@ -536,7 +536,7 @@ header.scrolled{background:rgba(255,255,255,.82)!important;-webkit-backdrop-filt
 .cd-b i{font-style:normal;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
 </style>
 <style id="mobile-tune">@media(max-width:767px){#hero{padding-top:1.5rem!important;padding-bottom:2.5rem!important}#about,#directions,#teachers,#gallery,#testimonials,#how-it-works,#faq,#contact{padding-top:3rem!important;padding-bottom:3rem!important}.hero-stats{display:grid!important;grid-template-columns:repeat(3,1fr);gap:.5rem!important}.hero-stats>div{border:1px solid #e8d3d8;background:#fdf6f7;border-radius:.9rem;padding:.7rem .25rem}.hero-stats .text-4xl{font-size:1.5rem!important;line-height:1.1}.hero-stats .text-sm{font-size:.7rem!important;line-height:1.2;margin-top:.15rem}}</style>
-</head>
+<style>#hubbtn{position:fixed;left:1rem;bottom:1rem;z-index:800;background:#fff;color:#A56A75;border:2px solid #C2828F;border-radius:999px;padding:.5rem 1rem;font:600 .85rem Montserrat,sans-serif;text-decoration:none;box-shadow:0 6px 18px rgba(165,106,117,.3)}#hubbtn:hover{background:#C2828F;color:#fff}</style></head>
 <body class="font-sans text-gray-800">
 
 <header class="bg-white py-2 sticky top-0 z-50 shadow-md">
@@ -1994,5 +1994,6 @@ addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(upd)}
 document.querySelectorAll('header nav>a[href="#"],[data-top]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();if(dd)dd.classList.add('hidden');window.scrollTo({top:0,behavior:'smooth'})})});
 })();
 </script>
+<a id="hubbtn" href="/hub/" rel="nofollow">Хаб</a>
 </body>
 </html>
